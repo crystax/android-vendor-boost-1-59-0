@@ -25,7 +25,10 @@
 #include <utility>
 
 #if defined(__ANDROID__)
+#include <android/api-level.h>
+#if __ANDROID_API__ < 21
 #include <asm/page.h> // http://code.google.com/p/android/issues/detail?id=39983
+#endif
 #endif
 
 #include <pthread.h>

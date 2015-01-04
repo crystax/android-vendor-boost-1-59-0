@@ -55,6 +55,8 @@ information and acquired knowledge:
     !BOOST_ENDIAN_LITTLE_BYTE && !BOOST_ENDIAN_LITTLE_WORD
 #   if BOOST_LIB_C_GNU
 #       include <endian.h>
+#   elif defined(__ANDROID__)
+#       include <endian.h>
 #   else
 #       if BOOST_OS_MACOS
 #           include <machine/endian.h>
