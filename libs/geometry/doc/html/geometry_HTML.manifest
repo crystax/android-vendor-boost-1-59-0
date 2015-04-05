@@ -121,6 +121,9 @@ geometry/reference/algorithms/intersects/intersects_1_one_geometry.html
 geometry/reference/algorithms/intersects/intersects_2_two_geometries.html
 geometry/reference/algorithms/is_simple.html
 geometry/reference/algorithms/is_valid.html
+geometry/reference/algorithms/is_valid/is_valid_1.html
+geometry/reference/algorithms/is_valid/is_valid_2_with_failure_value.html
+geometry/reference/algorithms/is_valid/is_valid_2_with_message.html
 geometry/reference/algorithms/length.html
 geometry/reference/algorithms/length/length_1.html
 geometry/reference/algorithms/length/length_2_with_strategy.html
@@ -132,6 +135,7 @@ geometry/reference/algorithms/make/make_zero.html
 geometry/reference/algorithms/num_geometries.html
 geometry/reference/algorithms/num_interior_rings.html
 geometry/reference/algorithms/num_points.html
+geometry/reference/algorithms/num_segments.html
 geometry/reference/algorithms/overlaps.html
 geometry/reference/algorithms/perimeter.html
 geometry/reference/algorithms/perimeter/perimeter_1.html
@@ -203,6 +207,7 @@ geometry/reference/enumerations/closure_selector.html
 geometry/reference/enumerations/join_selector.html
 geometry/reference/enumerations/order_selector.html
 geometry/reference/enumerations/piece_type.html
+geometry/reference/enumerations/validity_failure_type.html
 geometry/reference/exceptions.html
 geometry/reference/exceptions/exception.html
 geometry/reference/exceptions/centroid_exception.html
@@ -339,9 +344,8 @@ geometry/reference/views/segment_view.html
 geometry/reference/views/closeable_view.html
 geometry/reference/views/reversible_view.html
 geometry/reference/views/identity_view.html
-geometry/indexes.html
-geometry/indexes/matrix.html
-geometry/indexes/alphabetical_index.html
+geometry/matrix.html
+geometry/reference_alphabetical_index.html
 geometry/examples.html
 geometry/examples/example__adapting_a_legacy_geometry_object_model.html
 geometry/examples/example_source_code__adapting_a_legacy_geometry_object_model.html
