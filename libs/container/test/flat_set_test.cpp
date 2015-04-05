@@ -21,6 +21,7 @@
 #include "set_test.hpp"
 #include "propagate_allocator_test.hpp"
 #include "emplace_test.hpp"
+#include "container_common_tests.hpp"
 #include <vector>
 #include <boost/container/detail/flat_tree.hpp>
 
@@ -183,7 +184,7 @@ class recursive_flat_set
    flat_set<recursive_flat_set>::const_iterator cit_;
    flat_set<recursive_flat_set>::reverse_iterator rit_;
    flat_set<recursive_flat_set>::const_reverse_iterator crit_;
-   
+
    friend bool operator< (const recursive_flat_set &a, const recursive_flat_set &b)
    {  return a.id_ < b.id_;   }
 };
@@ -209,7 +210,7 @@ class recursive_flat_multiset
    flat_multiset<recursive_flat_multiset>::const_iterator cit_;
    flat_multiset<recursive_flat_multiset>::reverse_iterator rit_;
    flat_multiset<recursive_flat_multiset>::const_reverse_iterator crit_;
-   
+
    friend bool operator< (const recursive_flat_multiset &a, const recursive_flat_multiset &b)
    {  return a.id_ < b.id_;   }
 };
@@ -225,35 +226,6 @@ void test_move()
    move_assign = boost::move(move_ctor);
    move_assign.swap(original);
 }
-
-template<class T, class A>
-class flat_set_propagate_test_wrapper
-   : public boost::container::flat_set<T, std::less<T>, A>
-{
-   BOOST_COPYABLE_AND_MOVABLE(flat_set_propagate_test_wrapper)
-   typedef boost::container::flat_set<T, std::less<T>, A> Base;
-   public:
-   flat_set_propagate_test_wrapper()
-      : Base()
-   {}
-
-   flat_set_propagate_test_wrapper(const flat_set_propagate_test_wrapper &x)
-      : Base(x)
-   {}
-
-   flat_set_propagate_test_wrapper(BOOST_RV_REF(flat_set_propagate_test_wrapper) x)
-      : Base(boost::move(static_cast<Base&>(x)))
-   {}
-
-   flat_set_propagate_test_wrapper &operator=(BOOST_COPY_ASSIGN_REF(flat_set_propagate_test_wrapper) x)
-   {  this->Base::operator=(x);  return *this; }
-
-   flat_set_propagate_test_wrapper &operator=(BOOST_RV_REF(flat_set_propagate_test_wrapper) x)
-   {  this->Base::operator=(boost::move(static_cast<Base&>(x)));  return *this; }
-
-   void swap(flat_set_propagate_test_wrapper &x)
-   {  this->Base::swap(x);  }
-};
 
 namespace boost{
 namespace container {
@@ -517,19 +489,64 @@ bool test_support_for_initialization_list_for()
    return true;
 }
 
+struct boost_container_flat_set;
+struct boost_container_flat_multiset;
+
+namespace boost {
+namespace container {
+namespace test {
+
+template<>
+struct alloc_propagate_base<boost_container_flat_set>
+{
+   template <class T, class Allocator>
+   struct apply
+   {
+      typedef boost::container::flat_set<T, std::less<T>, Allocator> type;
+   };
+};
+
+template<>
+struct alloc_propagate_base<boost_container_flat_multiset>
+{
+   template <class T, class Allocator>
+   struct apply
+   {
+      typedef boost::container::flat_multiset<T, std::less<T>, Allocator> type;
+   };
+};
+
+}}}   //boost::container::test
+
 int main()
 {
    using namespace boost::container::test;
 
    //Allocator argument container
    {
-      flat_set<int> set_((std::allocator<int>()));
-      flat_multiset<int> multiset_((std::allocator<int>()));
+      flat_set<int> set_((flat_set<int>::allocator_type()));
+      flat_multiset<int> multiset_((flat_multiset<int>::allocator_type()));
    }
    //Now test move semantics
    {
       test_move<flat_set<recursive_flat_set> >();
       test_move<flat_multiset<recursive_flat_multiset> >();
+   }
+   //Now test nth/index_of
+   {
+      flat_set<int> set;
+      flat_multiset<int> mset;
+
+      set.insert(0);
+      set.insert(1);
+      set.insert(2);
+      mset.insert(0);
+      mset.insert(1);
+      mset.insert(2);
+      if(!boost::container::test::test_nth_index_of(set))
+         return 1;
+      if(!boost::container::test::test_nth_index_of(mset))
+         return 1;
    }
 
    ////////////////////////////////////
@@ -573,16 +590,19 @@ int main()
    if(!boost::container::test::test_emplace<flat_multiset<test::EmplaceInt>, SetOptions>())
       return 1;
 
-   if(!test_support_for_initialization_list_for<flat_set<int> >())
+   if (!boost::container::test::test_set_methods_with_initializer_list_as_argument_for<flat_set<int> >())
       return 1;
 
-   if(!test_support_for_initialization_list_for<flat_multiset<int> >())
+   if (!boost::container::test::test_set_methods_with_initializer_list_as_argument_for<flat_multiset<int> >())
       return 1;
 
    ////////////////////////////////////
    //    Allocator propagation testing
    ////////////////////////////////////
-   if(!boost::container::test::test_propagate_allocator<flat_set_propagate_test_wrapper>())
+   if(!boost::container::test::test_propagate_allocator<boost_container_flat_set>())
+      return 1;
+
+   if(!boost::container::test::test_propagate_allocator<boost_container_flat_multiset>())
       return 1;
 
    return 0;

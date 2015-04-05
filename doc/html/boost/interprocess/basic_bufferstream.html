@@ -6,8 +6,8 @@
 <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="../../index.html" title="The Boost C++ Libraries BoostBook Documentation Subset">
 <link rel="up" href="../../interprocess/indexes_reference.html#header.boost.interprocess.streams.bufferstream_hpp" title="Header &lt;boost/interprocess/streams/bufferstream.hpp&gt;">
-<link rel="prev" href="basic_obufferstream.html" title="Class template basic_obufferstream">
-<link rel="next" href="basic_vectorbuf.html" title="Class template basic_vectorbuf">
+<link rel="prev" href="basic_bufferbuf.html" title="Class template basic_bufferbuf">
+<link rel="next" href="basic_ibufferstream.html" title="Class template basic_ibufferstream">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr>
@@ -20,7 +20,7 @@
 </tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="basic_obufferstream.html"><img src="../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../../interprocess/indexes_reference.html#header.boost.interprocess.streams.bufferstream_hpp"><img src="../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="basic_vectorbuf.html"><img src="../../../../doc/src/images/next.png" alt="Next"></a>
+<a accesskey="p" href="basic_bufferbuf.html"><img src="../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../../interprocess/indexes_reference.html#header.boost.interprocess.streams.bufferstream_hpp"><img src="../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="basic_ibufferstream.html"><img src="../../../../doc/src/images/next.png" alt="Next"></a>
 </div>
 <div class="refentry">
 <a name="boost.interprocess.basic_bufferstream"></a><div class="titlepage"></div>
@@ -42,51 +42,51 @@
   <span class="keyword">typedef</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">basic_ios</span><span class="special">&lt;</span> <span class="identifier">char_type</span><span class="special">,</span> <span class="identifier">CharTraits</span> <span class="special">&gt;</span><span class="special">::</span><span class="identifier">traits_type</span> <a name="boost.interprocess.basic_bufferstream.traits_type"></a><span class="identifier">traits_type</span><span class="special">;</span>
 
   <span class="comment">// <a class="link" href="basic_bufferstream.html#boost.interprocess.basic_bufferstreamconstruct-copy-destruct">construct/copy/destruct</a></span>
-  <a class="link" href="basic_bufferstream.html#idp66418160-bb"><span class="identifier">basic_bufferstream</span></a><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">ios_base</span><span class="special">::</span><span class="identifier">openmode</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">ios_base</span><span class="special">::</span><span class="identifier">in</span><span class="special">|</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">ios_base</span><span class="special">::</span><span class="identifier">out</span><span class="special">)</span><span class="special">;</span>
-  <a class="link" href="basic_bufferstream.html#idp66419872-bb"><span class="identifier">basic_bufferstream</span></a><span class="special">(</span><span class="identifier">CharT</span> <span class="special">*</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span><span class="special">,</span> 
+  <a class="link" href="basic_bufferstream.html#idp34309456-bb"><span class="identifier">basic_bufferstream</span></a><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">ios_base</span><span class="special">::</span><span class="identifier">openmode</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">ios_base</span><span class="special">::</span><span class="identifier">in</span><span class="special">|</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">ios_base</span><span class="special">::</span><span class="identifier">out</span><span class="special">)</span><span class="special">;</span>
+  <a class="link" href="basic_bufferstream.html#idp34311168-bb"><span class="identifier">basic_bufferstream</span></a><span class="special">(</span><span class="identifier">CharT</span> <span class="special">*</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span><span class="special">,</span> 
                      <span class="identifier">std</span><span class="special">::</span><span class="identifier">ios_base</span><span class="special">::</span><span class="identifier">openmode</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">ios_base</span><span class="special">::</span><span class="identifier">in</span><span class="special">|</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">ios_base</span><span class="special">::</span><span class="identifier">out</span><span class="special">)</span><span class="special">;</span>
-  <a class="link" href="basic_bufferstream.html#idp66422992-bb"><span class="special">~</span><span class="identifier">basic_bufferstream</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
+  <a class="link" href="basic_bufferstream.html#idp34314288-bb"><span class="special">~</span><span class="identifier">basic_bufferstream</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
 
-  <span class="comment">// <a class="link" href="basic_bufferstream.html#idp66411280-bb">public member functions</a></span>
-  <a class="link" href="basic_bufferbuf.html" title="Class template basic_bufferbuf">basic_bufferbuf</a><span class="special">&lt;</span> <span class="identifier">CharT</span><span class="special">,</span> <span class="identifier">CharTraits</span> <span class="special">&gt;</span> <span class="special">*</span> <a class="link" href="basic_bufferstream.html#idp66411840-bb"><span class="identifier">rdbuf</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-  <span class="identifier">std</span><span class="special">::</span><span class="identifier">pair</span><span class="special">&lt;</span> <span class="identifier">CharT</span> <span class="special">*</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="special">&gt;</span> <a class="link" href="basic_bufferstream.html#idp66413696-bb"><span class="identifier">buffer</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-  <span class="keyword">void</span> <a class="link" href="basic_bufferstream.html#idp66415296-bb"><span class="identifier">buffer</span></a><span class="special">(</span><span class="identifier">CharT</span> <span class="special">*</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span><span class="special">)</span><span class="special">;</span>
+  <span class="comment">// <a class="link" href="basic_bufferstream.html#idp34302576-bb">public member functions</a></span>
+  <a class="link" href="basic_bufferbuf.html" title="Class template basic_bufferbuf">basic_bufferbuf</a><span class="special">&lt;</span> <span class="identifier">CharT</span><span class="special">,</span> <span class="identifier">CharTraits</span> <span class="special">&gt;</span> <span class="special">*</span> <a class="link" href="basic_bufferstream.html#idp34303136-bb"><span class="identifier">rdbuf</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="identifier">std</span><span class="special">::</span><span class="identifier">pair</span><span class="special">&lt;</span> <span class="identifier">CharT</span> <span class="special">*</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="special">&gt;</span> <a class="link" href="basic_bufferstream.html#idp34304992-bb"><span class="identifier">buffer</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="keyword">void</span> <a class="link" href="basic_bufferstream.html#idp34306592-bb"><span class="identifier">buffer</span></a><span class="special">(</span><span class="identifier">CharT</span> <span class="special">*</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span><span class="special">)</span><span class="special">;</span>
 <span class="special">}</span><span class="special">;</span></pre></div>
 <div class="refsect1">
-<a name="idp247237792"></a><h2>Description</h2>
+<a name="idp241058528"></a><h2>Description</h2>
 <p>A basic_iostream class that uses a fixed size character buffer as its formatting buffer. </p>
 <div class="refsect2">
-<a name="idp247238576"></a><h3>
+<a name="idp241059312"></a><h3>
 <a name="boost.interprocess.basic_bufferstreamconstruct-copy-destruct"></a><code class="computeroutput">basic_bufferstream</code> 
         public
        construct/copy/destruct</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1">
 <li class="listitem">
-<pre class="literallayout"><a name="idp66418160-bb"></a><span class="identifier">basic_bufferstream</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">ios_base</span><span class="special">::</span><span class="identifier">openmode</span> mode <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">ios_base</span><span class="special">::</span><span class="identifier">in</span><span class="special">|</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">ios_base</span><span class="special">::</span><span class="identifier">out</span><span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><a name="idp34309456-bb"></a><span class="identifier">basic_bufferstream</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">ios_base</span><span class="special">::</span><span class="identifier">openmode</span> mode <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">ios_base</span><span class="special">::</span><span class="identifier">in</span><span class="special">|</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">ios_base</span><span class="special">::</span><span class="identifier">out</span><span class="special">)</span><span class="special">;</span></pre>
 <p>Constructor. Does not throw. </p>
 </li>
 <li class="listitem">
-<pre class="literallayout"><a name="idp66419872-bb"></a><span class="identifier">basic_bufferstream</span><span class="special">(</span><span class="identifier">CharT</span> <span class="special">*</span> buf<span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> length<span class="special">,</span> 
+<pre class="literallayout"><a name="idp34311168-bb"></a><span class="identifier">basic_bufferstream</span><span class="special">(</span><span class="identifier">CharT</span> <span class="special">*</span> buf<span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> length<span class="special">,</span> 
                    <span class="identifier">std</span><span class="special">::</span><span class="identifier">ios_base</span><span class="special">::</span><span class="identifier">openmode</span> mode <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">ios_base</span><span class="special">::</span><span class="identifier">in</span><span class="special">|</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">ios_base</span><span class="special">::</span><span class="identifier">out</span><span class="special">)</span><span class="special">;</span></pre>
 <p>Constructor. Assigns formatting buffer. Does not throw. </p>
 </li>
-<li class="listitem"><pre class="literallayout"><a name="idp66422992-bb"></a><span class="special">~</span><span class="identifier">basic_bufferstream</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre></li>
+<li class="listitem"><pre class="literallayout"><a name="idp34314288-bb"></a><span class="special">~</span><span class="identifier">basic_bufferstream</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre></li>
 </ol></div>
 </div>
 <div class="refsect2">
-<a name="idp247276032"></a><h3>
-<a name="idp66411280-bb"></a><code class="computeroutput">basic_bufferstream</code> public member functions</h3>
+<a name="idp241096832"></a><h3>
+<a name="idp34302576-bb"></a><code class="computeroutput">basic_bufferstream</code> public member functions</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1">
 <li class="listitem">
-<pre class="literallayout"><a class="link" href="basic_bufferbuf.html" title="Class template basic_bufferbuf">basic_bufferbuf</a><span class="special">&lt;</span> <span class="identifier">CharT</span><span class="special">,</span> <span class="identifier">CharTraits</span> <span class="special">&gt;</span> <span class="special">*</span> <a name="idp66411840-bb"></a><span class="identifier">rdbuf</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>
+<pre class="literallayout"><a class="link" href="basic_bufferbuf.html" title="Class template basic_bufferbuf">basic_bufferbuf</a><span class="special">&lt;</span> <span class="identifier">CharT</span><span class="special">,</span> <span class="identifier">CharTraits</span> <span class="special">&gt;</span> <span class="special">*</span> <a name="idp34303136-bb"></a><span class="identifier">rdbuf</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>
 <p>Returns the address of the stored stream buffer. </p>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="identifier">std</span><span class="special">::</span><span class="identifier">pair</span><span class="special">&lt;</span> <span class="identifier">CharT</span> <span class="special">*</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="special">&gt;</span> <a name="idp66413696-bb"></a><span class="identifier">buffer</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="identifier">std</span><span class="special">::</span><span class="identifier">pair</span><span class="special">&lt;</span> <span class="identifier">CharT</span> <span class="special">*</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="special">&gt;</span> <a name="idp34304992-bb"></a><span class="identifier">buffer</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>
 <p>Returns the pointer and size of the internal buffer. Does not throw. </p>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">void</span> <a name="idp66415296-bb"></a><span class="identifier">buffer</span><span class="special">(</span><span class="identifier">CharT</span> <span class="special">*</span> buf<span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> length<span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="keyword">void</span> <a name="idp34306592-bb"></a><span class="identifier">buffer</span><span class="special">(</span><span class="identifier">CharT</span> <span class="special">*</span> buf<span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> length<span class="special">)</span><span class="special">;</span></pre>
 <p>Sets the underlying buffer to a new value. Resets stream position. Does not throw. </p>
 </li>
 </ol></div>
@@ -103,7 +103,7 @@
 </tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="basic_obufferstream.html"><img src="../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../../interprocess/indexes_reference.html#header.boost.interprocess.streams.bufferstream_hpp"><img src="../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="basic_vectorbuf.html"><img src="../../../../doc/src/images/next.png" alt="Next"></a>
+<a accesskey="p" href="basic_bufferbuf.html"><img src="../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../../interprocess/indexes_reference.html#header.boost.interprocess.streams.bufferstream_hpp"><img src="../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="basic_ibufferstream.html"><img src="../../../../doc/src/images/next.png" alt="Next"></a>
 </div>
 </body>
 </html>

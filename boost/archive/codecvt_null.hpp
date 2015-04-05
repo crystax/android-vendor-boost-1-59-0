@@ -49,7 +49,7 @@ class codecvt_null;
 template<>
 class codecvt_null<char> : public std::codecvt<char, char, std::mbstate_t>
 {
-    virtual bool do_always_noconv() const throw() {
+    virtual bool do_always_noconv() const BOOST_NOEXCEPT_OR_NOTHROW {
         return true;
     }
 public:
@@ -87,6 +87,10 @@ class codecvt_null<wchar_t> : public std::codecvt<wchar_t, char, std::mbstate_t>
     virtual int do_max_length( ) const throw( ){
         return do_encoding();
     }
+public:
+    explicit codecvt_null(std::size_t no_locale_manage = 0) :
+        std::codecvt<wchar_t, char, std::mbstate_t>(no_locale_manage)
+    {}
 };
 
 } // namespace archive

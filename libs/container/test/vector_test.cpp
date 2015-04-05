@@ -7,10 +7,8 @@
 // See http://www.boost.org/libs/container for documentation.
 //
 //////////////////////////////////////////////////////////////////////////////
-
 #include <memory>
 #include <iostream>
-#include <functional>
 
 #include <boost/container/vector.hpp>
 #include <boost/container/allocator.hpp>
@@ -147,6 +145,22 @@ int test_cont_variants()
    return 0;
 }
 
+struct boost_container_vector;
+
+namespace boost { namespace container {   namespace test {
+
+template<>
+struct alloc_propagate_base<boost_container_vector>
+{
+   template <class T, class Allocator>
+   struct apply
+   {
+      typedef boost::container::vector<T, Allocator> type;
+   };
+};
+
+}}}   //namespace boost::container::test
+
 int main()
 {
    {
@@ -237,7 +251,7 @@ int main()
    ////////////////////////////////////
    //    Allocator propagation testing
    ////////////////////////////////////
-   if(!boost::container::test::test_propagate_allocator<vector>()){
+   if(!boost::container::test::test_propagate_allocator<boost_container_vector>()){
       return 1;
    }
 

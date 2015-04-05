@@ -281,30 +281,6 @@
 <p>
 
       </p>
-<p><span class="bold"><strong>Caveat</strong></span>: On most platforms, the
-        Type Traits templates
-        <code class="computeroutput">has_nothrow_copy</code> and <code class="computeroutput">has_nothrow_constructor</code>
-        by default return <code class="computeroutput">false</code> for all <code class="computeroutput">class</code> and
-        <code class="computeroutput">struct</code> types. It is necessary therefore to provide
-        specializations of these templates as appropriate for user-defined
-        types, as demonstrated in the following:
-
-</p>
-<pre class="programlisting">// ...in your code (at file scope)...
-
-namespace boost {
-
-  template &lt;&gt;
-  struct <code class="computeroutput">has_nothrow_copy</code>&lt; myUDT &gt;
-    : <code class="computeroutput">mpl::true_</code>
-  {
-  };
-
-}
-</pre>
-<p>
-
-      </p>
 <p><span class="bold"><strong>Implementation Note</strong></span>: So as to make
         the behavior of <code class="computeroutput">variant</code> more predictable in the aftermath
         of an exception, the current implementation prefers to default-construct

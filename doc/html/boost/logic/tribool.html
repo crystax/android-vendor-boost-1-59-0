@@ -36,27 +36,27 @@
 <span class="keyword">public</span><span class="special">:</span>
   <span class="keyword">enum</span> <a class="link" href="tribool/value_t.html" title="Type value_t">value_t</a><span class="special">;</span>
   <span class="comment">// <a class="link" href="tribool.html#boost.logic.triboolconstruct-copy-destruct">construct/copy/destruct</a></span>
-  <a class="link" href="tribool.html#idp216992080-bb"><span class="identifier">tribool</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
-  <a class="link" href="tribool.html#idp159734992-bb"><span class="identifier">tribool</span></a><span class="special">(</span><span class="keyword">bool</span><span class="special">)</span><span class="special">;</span>
-  <a class="link" href="tribool.html#idp219456352-bb"><span class="identifier">tribool</span></a><span class="special">(</span><span class="identifier">indeterminate_keyword_t</span><span class="special">)</span><span class="special">;</span>
+  <a class="link" href="tribool.html#idp25296480-bb"><span class="identifier">tribool</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
+  <a class="link" href="tribool.html#idp202324240-bb"><span class="identifier">tribool</span></a><span class="special">(</span><span class="keyword">bool</span><span class="special">)</span><span class="special">;</span>
+  <a class="link" href="tribool.html#idp79326560-bb"><span class="identifier">tribool</span></a><span class="special">(</span><span class="identifier">indeterminate_keyword_t</span><span class="special">)</span><span class="special">;</span>
 
-  <span class="comment">// <a class="link" href="tribool.html#idp44482464-bb">public member functions</a></span>
-  <a class="link" href="tribool.html#idp44483136-bb"><span class="keyword">operator</span> <span class="identifier">safe_bool</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="comment">// <a class="link" href="tribool.html#idp77822304-bb">public member functions</a></span>
+  <a class="link" href="tribool.html#idp214841632-bb"><span class="keyword">operator</span> <span class="identifier">safe_bool</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
 
   <span class="comment">// public data members</span>
   <span class="keyword">enum</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">logic</span><span class="special">::</span><span class="identifier">tribool</span><span class="special">::</span><span class="identifier">value_t</span> <span class="identifier">value</span><span class="special">;</span>
 <span class="special">}</span><span class="special">;</span></pre></div>
 <div class="refsect1">
-<a name="idp471703936"></a><h2>Description</h2>
+<a name="idp467186624"></a><h2>Description</h2>
 <p>3-state boolean values are either true, false, or indeterminate. </p>
 <div class="refsect2">
-<a name="idp471704688"></a><h3>
+<a name="idp467187376"></a><h3>
 <a name="boost.logic.triboolconstruct-copy-destruct"></a><code class="computeroutput">tribool</code> 
         public
        construct/copy/destruct</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1">
 <li class="listitem">
-<pre class="literallayout"><a name="idp216992080-bb"></a><span class="identifier">tribool</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><a name="idp25296480-bb"></a><span class="identifier">tribool</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre>
 <p>Construct a new 3-state boolean value with the value 'false'.</p>
 <p>
 </p>
@@ -72,7 +72,7 @@
 </table></div>
 </li>
 <li class="listitem">
-<pre class="literallayout"><a name="idp159734992-bb"></a><span class="identifier">tribool</span><span class="special">(</span><span class="keyword">bool</span> initial_value<span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><a name="idp202324240-bb"></a><span class="identifier">tribool</span><span class="special">(</span><span class="keyword">bool</span> initial_value<span class="special">)</span><span class="special">;</span></pre>
 <p>Construct a new 3-state boolean value with the given boolean value, which may be <code class="computeroutput">true</code> or <code class="computeroutput">false</code>.</p>
 <p>
 </p>
@@ -88,7 +88,7 @@
 </table></div>
 </li>
 <li class="listitem">
-<pre class="literallayout"><a name="idp219456352-bb"></a><span class="identifier">tribool</span><span class="special">(</span><span class="identifier">indeterminate_keyword_t</span><span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><a name="idp79326560-bb"></a><span class="identifier">tribool</span><span class="special">(</span><span class="identifier">indeterminate_keyword_t</span><span class="special">)</span><span class="special">;</span></pre>
 <p>Construct a new 3-state boolean value with an indeterminate value.</p>
 <p>
 </p>
@@ -106,10 +106,10 @@
 </ol></div>
 </div>
 <div class="refsect2">
-<a name="idp471726704"></a><h3>
-<a name="idp44482464-bb"></a><code class="computeroutput">tribool</code> public member functions</h3>
+<a name="idp467209264"></a><h3>
+<a name="idp77822304-bb"></a><code class="computeroutput">tribool</code> public member functions</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
-<pre class="literallayout"><a name="idp44483136-bb"></a><span class="keyword">operator</span> <span class="identifier">safe_bool</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>
+<pre class="literallayout"><a name="idp214841632-bb"></a><span class="keyword">operator</span> <span class="identifier">safe_bool</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>
 <p>Use a 3-state boolean in a boolean context. Will evaluate true in a boolean context only when the 3-state boolean is definitely true.</p>
 <p>
 
