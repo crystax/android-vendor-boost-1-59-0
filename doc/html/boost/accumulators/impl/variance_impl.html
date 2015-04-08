@@ -34,50 +34,50 @@
 </span><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> Sample<span class="special">,</span> <span class="keyword">typename</span> MeanFeature<span class="special">,</span> <span class="keyword">typename</span> Tag<span class="special">&gt;</span> 
 <span class="keyword">struct</span> <a class="link" href="variance_impl.html" title="Struct template variance_impl">variance_impl</a> <span class="special">:</span> <span class="keyword">public</span> <span class="identifier">accumulator_base</span> <span class="special">{</span>
   <span class="comment">// <a class="link" href="variance_impl.html#boost.accumulators.impl.variance_implconstruct-copy-destruct">construct/copy/destruct</a></span>
-  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> Args<span class="special">&gt;</span> <a class="link" href="variance_impl.html#idp49267216-bb"><span class="identifier">variance_impl</span></a><span class="special">(</span><span class="identifier">Args</span> <span class="keyword">const</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span>
+  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> Args<span class="special">&gt;</span> <a class="link" href="variance_impl.html#idp59859856-bb"><span class="identifier">variance_impl</span></a><span class="special">(</span><span class="identifier">Args</span> <span class="keyword">const</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span>
 
-  <span class="comment">// <a class="link" href="variance_impl.html#idp49262304-bb">public member functions</a></span>
-  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> Args<span class="special">&gt;</span> <span class="keyword">void</span> <a class="link" href="variance_impl.html#idp49262864-bb"><span class="keyword">operator</span><span class="special">(</span><span class="special">)</span></a><span class="special">(</span><span class="identifier">Args</span> <span class="keyword">const</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span>
-  <span class="identifier">result_type</span> <a class="link" href="variance_impl.html#idp49265248-bb"><span class="identifier">result</span></a><span class="special">(</span><span class="identifier">dont_care</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="comment">// <a class="link" href="variance_impl.html#idp59854944-bb">public member functions</a></span>
+  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> Args<span class="special">&gt;</span> <span class="keyword">void</span> <a class="link" href="variance_impl.html#idp59855504-bb"><span class="keyword">operator</span><span class="special">(</span><span class="special">)</span></a><span class="special">(</span><span class="identifier">Args</span> <span class="keyword">const</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span>
+  <span class="identifier">result_type</span> <a class="link" href="variance_impl.html#idp59857888-bb"><span class="identifier">result</span></a><span class="special">(</span><span class="identifier">dont_care</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
 <span class="special">}</span><span class="special">;</span></pre></div>
 <div class="refsect1">
-<a name="idp103270336"></a><h2>Description</h2>
-<p>Iterative calculation of sample variance <span class="inlinemediaobject"><img src="../../../images/accumulators//form_54.png"></span> according to the formula </p>
+<a name="idp102373424"></a><h2>Description</h2>
+<p>Iterative calculation of sample variance <span class="inlinemediaobject"><img src="../../../images/accumulators//form_47.png"></span> according to the formula </p>
 <div class="equation">
-<a name="idp103273504"></a><p class="title"><b>Equation&#160;1.36.&#160;</b></p>
-<div class="equation-contents"><div class="mediaobject" align="center"><img src="../../../images/accumulators//form_101.png" align="middle"></div></div>
+<a name="idp102376592"></a><p class="title"><b>Equation&#160;1.36.&#160;</b></p>
+<div class="equation-contents"><div class="mediaobject" align="center"><img src="../../../images/accumulators//form_48.png" align="middle"></div></div>
 </div>
 <p><br class="equation-break"> where </p>
 <div class="equation">
-<a name="idp103276544"></a><p class="title"><b>Equation&#160;1.37.&#160;</b></p>
-<div class="equation-contents"><div class="mediaobject" align="center"><img src="../../../images/accumulators//form_100.png" align="middle"></div></div>
+<a name="idp102379632"></a><p class="title"><b>Equation&#160;1.37.&#160;</b></p>
+<div class="equation-contents"><div class="mediaobject" align="center"><img src="../../../images/accumulators//form_46.png" align="middle"></div></div>
 </div>
-<p><br class="equation-break"> is the estimate of the sample mean and <span class="inlinemediaobject"><img src="../../../images/accumulators//form_47.png"></span> is the number of samples.</p>
-<p>Note that the sample variance is not defined for <span class="inlinemediaobject"><img src="../../../images/accumulators//form_53.png"></span>.</p>
+<p><br class="equation-break"> is the estimate of the sample mean and <span class="inlinemediaobject"><img src="../../../images/accumulators//form_3.png"></span> is the number of samples.</p>
+<p>Note that the sample variance is not defined for <span class="inlinemediaobject"><img src="../../../images/accumulators//form_8.png"></span>.</p>
 <p>A simplification can be obtained by the approximate recursion </p>
 <div class="equation">
-<a name="idp103284784"></a><p class="title"><b>Equation&#160;1.38.&#160;</b></p>
-<div class="equation-contents"><div class="mediaobject" align="center"><img src="../../../images/accumulators//form_102.png" align="middle"></div></div>
+<a name="idp102387952"></a><p class="title"><b>Equation&#160;1.38.&#160;</b></p>
+<div class="equation-contents"><div class="mediaobject" align="center"><img src="../../../images/accumulators//form_49.png" align="middle"></div></div>
 </div>
 <p><br class="equation-break"> because the difference </p>
 <div class="equation">
-<a name="idp103287744"></a><p class="title"><b>Equation&#160;1.39.&#160;</b></p>
-<div class="equation-contents"><div class="mediaobject" align="center"><img src="../../../images/accumulators//form_103.png" align="middle"></div></div>
+<a name="idp102390912"></a><p class="title"><b>Equation&#160;1.39.&#160;</b></p>
+<div class="equation-contents"><div class="mediaobject" align="center"><img src="../../../images/accumulators//form_50.png" align="middle"></div></div>
 </div>
-<p><br class="equation-break"> converges to zero as <span class="inlinemediaobject"><img src="../../../images/accumulators//form_104.png"></span>. However, for small <span class="inlinemediaobject"><img src="../../../images/accumulators//form_31.png"></span> the difference can be non-negligible. </p>
+<p><br class="equation-break"> converges to zero as <span class="inlinemediaobject"><img src="../../../images/accumulators//form_51.png"></span>. However, for small <span class="inlinemediaobject"><img src="../../../images/accumulators//form_52.png"></span> the difference can be non-negligible. </p>
 <div class="refsect2">
-<a name="idp103295568"></a><h3>
+<a name="idp102398736"></a><h3>
 <a name="boost.accumulators.impl.variance_implconstruct-copy-destruct"></a><code class="computeroutput">variance_impl</code> 
         public
        construct/copy/destruct</h3>
-<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> Args<span class="special">&gt;</span> <a name="idp49267216-bb"></a><span class="identifier">variance_impl</span><span class="special">(</span><span class="identifier">Args</span> <span class="keyword">const</span> <span class="special">&amp;</span> args<span class="special">)</span><span class="special">;</span></pre></li></ol></div>
+<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> Args<span class="special">&gt;</span> <a name="idp59859856-bb"></a><span class="identifier">variance_impl</span><span class="special">(</span><span class="identifier">Args</span> <span class="keyword">const</span> <span class="special">&amp;</span> args<span class="special">)</span><span class="special">;</span></pre></li></ol></div>
 </div>
 <div class="refsect2">
-<a name="idp103306240"></a><h3>
-<a name="idp49262304-bb"></a><code class="computeroutput">variance_impl</code> public member functions</h3>
+<a name="idp102409408"></a><h3>
+<a name="idp59854944-bb"></a><code class="computeroutput">variance_impl</code> public member functions</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1">
-<li class="listitem"><pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> Args<span class="special">&gt;</span> <span class="keyword">void</span> <a name="idp49262864-bb"></a><span class="keyword">operator</span><span class="special">(</span><span class="special">)</span><span class="special">(</span><span class="identifier">Args</span> <span class="keyword">const</span> <span class="special">&amp;</span> args<span class="special">)</span><span class="special">;</span></pre></li>
-<li class="listitem"><pre class="literallayout"><span class="identifier">result_type</span> <a name="idp49265248-bb"></a><span class="identifier">result</span><span class="special">(</span><span class="identifier">dont_care</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre></li>
+<li class="listitem"><pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> Args<span class="special">&gt;</span> <span class="keyword">void</span> <a name="idp59855504-bb"></a><span class="keyword">operator</span><span class="special">(</span><span class="special">)</span><span class="special">(</span><span class="identifier">Args</span> <span class="keyword">const</span> <span class="special">&amp;</span> args<span class="special">)</span><span class="special">;</span></pre></li>
+<li class="listitem"><pre class="literallayout"><span class="identifier">result_type</span> <a name="idp59857888-bb"></a><span class="identifier">result</span><span class="special">(</span><span class="identifier">dont_care</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre></li>
 </ol></div>
 </div>
 </div>
