@@ -7,7 +7,7 @@
 <link rel="home" href="../index.html" title="The Boost C++ Libraries BoostBook Documentation Subset">
 <link rel="up" href="../variant/reference.html#header.boost.variant.variant_hpp" title="Header &lt;boost/variant/variant.hpp&gt;">
 <link rel="prev" href="../BOOST_VARIANT_NO_FULL_RECURSIVE_VARIANT_SUPPORT.html" title="Macro BOOST_VARIANT_NO_FULL_RECURSIVE_VARIANT_SUPPORT">
-<link rel="next" href="swap_idp335352448.html" title="Function template swap">
+<link rel="next" href="swap_idp294827936.html" title="Function template swap">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr>
@@ -20,7 +20,7 @@
 </tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="../BOOST_VARIANT_NO_FULL_RECURSIVE_VARIANT_SUPPORT.html"><img src="../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../variant/reference.html#header.boost.variant.variant_hpp"><img src="../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="swap_idp335352448.html"><img src="../../../doc/src/images/next.png" alt="Next"></a>
+<a accesskey="p" href="../BOOST_VARIANT_NO_FULL_RECURSIVE_VARIANT_SUPPORT.html"><img src="../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../variant/reference.html#header.boost.variant.variant_hpp"><img src="../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="swap_idp294827936.html"><img src="../../../doc/src/images/next.png" alt="Next"></a>
 </div>
 <div class="refentry">
 <a name="boost.variant"></a><div class="titlepage"></div>
@@ -39,48 +39,48 @@
   <span class="keyword">typedef</span> <span class="emphasis"><em><span class="identifier">unspecified</span></em></span> <a name="boost.variant.types"></a><span class="identifier">types</span><span class="special">;</span>
 
   <span class="comment">// <a class="link" href="variant.html#boost.variantconstruct-copy-destruct">construct/copy/destruct</a></span>
-  <a class="link" href="variant.html#idp292404096-bb"><span class="identifier">variant</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
-  <a class="link" href="variant.html#idp202890240-bb"><span class="identifier">variant</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span>
-  <a class="link" href="variant.html#idp290331024-bb"><span class="identifier">variant</span></a><span class="special">(</span><span class="identifier">variant</span> <span class="special">&amp;&amp;</span><span class="special">)</span><span class="special">;</span>
-  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> T<span class="special">&gt;</span> <a class="link" href="variant.html#idp136219744-bb"><span class="identifier">variant</span></a><span class="special">(</span><span class="identifier">T</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span>
-  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> T<span class="special">&gt;</span> <a class="link" href="variant.html#idp294608048-bb"><span class="identifier">variant</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">T</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span>
-  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> T<span class="special">&gt;</span> <a class="link" href="variant.html#idp288656144-bb"><span class="identifier">variant</span></a><span class="special">(</span><span class="identifier">T</span> <span class="special">&amp;&amp;</span><span class="special">)</span><span class="special">;</span>
+  <a class="link" href="variant.html#idp299390352-bb"><span class="identifier">variant</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
+  <a class="link" href="variant.html#idp306637728-bb"><span class="identifier">variant</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span>
+  <a class="link" href="variant.html#idp300881440-bb"><span class="identifier">variant</span></a><span class="special">(</span><span class="identifier">variant</span> <span class="special">&amp;&amp;</span><span class="special">)</span><span class="special">;</span>
+  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> T<span class="special">&gt;</span> <a class="link" href="variant.html#idp98965760-bb"><span class="identifier">variant</span></a><span class="special">(</span><span class="identifier">T</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span>
+  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> T<span class="special">&gt;</span> <a class="link" href="variant.html#idp303350928-bb"><span class="identifier">variant</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">T</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span>
+  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> T<span class="special">&gt;</span> <a class="link" href="variant.html#idp309364096-bb"><span class="identifier">variant</span></a><span class="special">(</span><span class="identifier">T</span> <span class="special">&amp;&amp;</span><span class="special">)</span><span class="special">;</span>
   <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U1<span class="special">,</span> <span class="keyword">typename</span> U2<span class="special">,</span> <span class="special">...</span><span class="special">,</span> <span class="keyword">typename</span> UN<span class="special">&gt;</span> 
-    <a class="link" href="variant.html#idp338002576-bb"><span class="identifier">variant</span></a><span class="special">(</span><span class="identifier">variant</span><span class="special">&lt;</span><span class="identifier">U1</span><span class="special">,</span> <span class="identifier">U2</span><span class="special">,</span> <span class="special">...</span><span class="special">,</span> <span class="identifier">UN</span><span class="special">&gt;</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span>
+    <a class="link" href="variant.html#idp346155856-bb"><span class="identifier">variant</span></a><span class="special">(</span><span class="identifier">variant</span><span class="special">&lt;</span><span class="identifier">U1</span><span class="special">,</span> <span class="identifier">U2</span><span class="special">,</span> <span class="special">...</span><span class="special">,</span> <span class="identifier">UN</span><span class="special">&gt;</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span>
   <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U1<span class="special">,</span> <span class="keyword">typename</span> U2<span class="special">,</span> <span class="special">...</span><span class="special">,</span> <span class="keyword">typename</span> UN<span class="special">&gt;</span> 
-    <a class="link" href="variant.html#idp80551760-bb"><span class="identifier">variant</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span><span class="special">&lt;</span><span class="identifier">U1</span><span class="special">,</span> <span class="identifier">U2</span><span class="special">,</span> <span class="special">...</span><span class="special">,</span> <span class="identifier">UN</span><span class="special">&gt;</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span>
+    <a class="link" href="variant.html#idp309871664-bb"><span class="identifier">variant</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span><span class="special">&lt;</span><span class="identifier">U1</span><span class="special">,</span> <span class="identifier">U2</span><span class="special">,</span> <span class="special">...</span><span class="special">,</span> <span class="identifier">UN</span><span class="special">&gt;</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span>
   <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U1<span class="special">,</span> <span class="keyword">typename</span> U2<span class="special">,</span> <span class="special">...</span><span class="special">,</span> <span class="keyword">typename</span> UN<span class="special">&gt;</span> 
-    <a class="link" href="variant.html#idp336051296-bb"><span class="identifier">variant</span></a><span class="special">(</span><span class="identifier">variant</span><span class="special">&lt;</span><span class="identifier">U1</span><span class="special">,</span> <span class="identifier">U2</span><span class="special">,</span> <span class="special">...</span><span class="special">,</span> <span class="identifier">UN</span><span class="special">&gt;</span> <span class="special">&amp;&amp;</span><span class="special">)</span><span class="special">;</span>
-  <a class="link" href="variant.html#idp293378864-bb"><span class="special">~</span><span class="identifier">variant</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
+    <a class="link" href="variant.html#idp305173936-bb"><span class="identifier">variant</span></a><span class="special">(</span><span class="identifier">variant</span><span class="special">&lt;</span><span class="identifier">U1</span><span class="special">,</span> <span class="identifier">U2</span><span class="special">,</span> <span class="special">...</span><span class="special">,</span> <span class="identifier">UN</span><span class="special">&gt;</span> <span class="special">&amp;&amp;</span><span class="special">)</span><span class="special">;</span>
+  <a class="link" href="variant.html#idp217412560-bb"><span class="special">~</span><span class="identifier">variant</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
 
-  <span class="comment">// <a class="link" href="variant.html#idp298071856-bb">modifiers</a></span>
-  <span class="keyword">void</span> <a class="link" href="variant.html#idp198848288-bb"><span class="identifier">swap</span></a><span class="special">(</span><span class="identifier">variant</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span>
-  <span class="identifier">variant</span> <span class="special">&amp;</span> <a class="link" href="variant.html#idp336644400-bb"><span class="keyword">operator</span><span class="special">=</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span>
-  <span class="identifier">variant</span> <span class="special">&amp;</span> <a class="link" href="variant.html#idp337255040-bb"><span class="keyword">operator</span><span class="special">=</span></a><span class="special">(</span><span class="identifier">variant</span> <span class="special">&amp;&amp;</span><span class="special">)</span><span class="special">;</span>
-  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> T<span class="special">&gt;</span> <span class="identifier">variant</span> <span class="special">&amp;</span> <a class="link" href="variant.html#idp336550512-bb"><span class="keyword">operator</span><span class="special">=</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">T</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span>
-  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> T<span class="special">&gt;</span> <span class="identifier">variant</span> <span class="special">&amp;</span> <a class="link" href="variant.html#idp297384304-bb"><span class="keyword">operator</span><span class="special">=</span></a><span class="special">(</span><span class="identifier">T</span> <span class="special">&amp;&amp;</span><span class="special">)</span><span class="special">;</span>
+  <span class="comment">// <a class="link" href="variant.html#idp295070128-bb">modifiers</a></span>
+  <span class="keyword">void</span> <a class="link" href="variant.html#idp295070688-bb"><span class="identifier">swap</span></a><span class="special">(</span><span class="identifier">variant</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span>
+  <span class="identifier">variant</span> <span class="special">&amp;</span> <a class="link" href="variant.html#idp302725648-bb"><span class="keyword">operator</span><span class="special">=</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span>
+  <span class="identifier">variant</span> <span class="special">&amp;</span> <a class="link" href="variant.html#idp88247232-bb"><span class="keyword">operator</span><span class="special">=</span></a><span class="special">(</span><span class="identifier">variant</span> <span class="special">&amp;&amp;</span><span class="special">)</span><span class="special">;</span>
+  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> T<span class="special">&gt;</span> <span class="identifier">variant</span> <span class="special">&amp;</span> <a class="link" href="variant.html#idp304703248-bb"><span class="keyword">operator</span><span class="special">=</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">T</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span>
+  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> T<span class="special">&gt;</span> <span class="identifier">variant</span> <span class="special">&amp;</span> <a class="link" href="variant.html#idp301289136-bb"><span class="keyword">operator</span><span class="special">=</span></a><span class="special">(</span><span class="identifier">T</span> <span class="special">&amp;&amp;</span><span class="special">)</span><span class="special">;</span>
 
-  <span class="comment">// <a class="link" href="variant.html#idp336765840-bb">queries</a></span>
-  <span class="keyword">int</span> <a class="link" href="variant.html#idp288369344-bb"><span class="identifier">which</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-  <span class="keyword">bool</span> <a class="link" href="variant.html#idp294731920-bb"><span class="identifier">empty</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-  <span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">type_info</span> <span class="special">&amp;</span> <a class="link" href="variant.html#idp297597984-bb"><span class="identifier">type</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="comment">// <a class="link" href="variant.html#idp214128448-bb">queries</a></span>
+  <span class="keyword">int</span> <a class="link" href="variant.html#idp221593392-bb"><span class="identifier">which</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="keyword">bool</span> <a class="link" href="variant.html#idp346173104-bb"><span class="identifier">empty</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">type_info</span> <span class="special">&amp;</span> <a class="link" href="variant.html#idp98966368-bb"><span class="identifier">type</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
 
-  <span class="comment">// <a class="link" href="variant.html#idp97116112-bb">relational</a></span>
-  <span class="keyword">bool</span> <a class="link" href="variant.html#idp142133376-bb"><span class="keyword">operator</span><span class="special">==</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <span class="keyword">void</span> <a class="link" href="variant.html#idp82398624-bb"><span class="keyword">operator</span><span class="special">==</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">U</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-  <span class="keyword">bool</span> <a class="link" href="variant.html#idp293440112-bb"><span class="keyword">operator</span><span class="special">!=</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <span class="keyword">void</span> <a class="link" href="variant.html#idp335388672-bb"><span class="keyword">operator</span><span class="special">!=</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">U</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-  <span class="keyword">bool</span> <a class="link" href="variant.html#idp185953888-bb"><span class="keyword">operator</span><span class="special">&lt;</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <span class="keyword">void</span> <a class="link" href="variant.html#idp293561232-bb"><span class="keyword">operator</span><span class="special">&lt;</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">U</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-  <span class="keyword">bool</span> <a class="link" href="variant.html#idp336705648-bb"><span class="keyword">operator</span><span class="special">&gt;</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <span class="keyword">void</span> <a class="link" href="variant.html#idp337230784-bb"><span class="keyword">operator</span><span class="special">&gt;</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">U</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-  <span class="keyword">bool</span> <a class="link" href="variant.html#idp336522976-bb"><span class="keyword">operator</span><span class="special">&lt;=</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <span class="keyword">void</span> <a class="link" href="variant.html#idp211061344-bb"><span class="keyword">operator</span><span class="special">&lt;=</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">U</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-  <span class="keyword">bool</span> <a class="link" href="variant.html#idp288858912-bb"><span class="keyword">operator</span><span class="special">&gt;=</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <span class="keyword">void</span> <a class="link" href="variant.html#idp206187808-bb"><span class="keyword">operator</span><span class="special">&gt;=</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">U</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="comment">// <a class="link" href="variant.html#idp214061360-bb">relational</a></span>
+  <span class="keyword">bool</span> <a class="link" href="variant.html#idp300772208-bb"><span class="keyword">operator</span><span class="special">==</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <span class="keyword">void</span> <a class="link" href="variant.html#idp347327664-bb"><span class="keyword">operator</span><span class="special">==</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">U</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="keyword">bool</span> <a class="link" href="variant.html#idp296717424-bb"><span class="keyword">operator</span><span class="special">!=</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <span class="keyword">void</span> <a class="link" href="variant.html#idp142445392-bb"><span class="keyword">operator</span><span class="special">!=</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">U</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="keyword">bool</span> <a class="link" href="variant.html#idp302910144-bb"><span class="keyword">operator</span><span class="special">&lt;</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <span class="keyword">void</span> <a class="link" href="variant.html#idp347255600-bb"><span class="keyword">operator</span><span class="special">&lt;</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">U</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="keyword">bool</span> <a class="link" href="variant.html#idp296786128-bb"><span class="keyword">operator</span><span class="special">&gt;</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <span class="keyword">void</span> <a class="link" href="variant.html#idp309642560-bb"><span class="keyword">operator</span><span class="special">&gt;</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">U</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="keyword">bool</span> <a class="link" href="variant.html#idp346037600-bb"><span class="keyword">operator</span><span class="special">&lt;=</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <span class="keyword">void</span> <a class="link" href="variant.html#idp295299264-bb"><span class="keyword">operator</span><span class="special">&lt;=</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">U</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="keyword">bool</span> <a class="link" href="variant.html#idp346609792-bb"><span class="keyword">operator</span><span class="special">&gt;=</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <span class="keyword">void</span> <a class="link" href="variant.html#idp297709632-bb"><span class="keyword">operator</span><span class="special">&gt;=</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">U</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
 <span class="special">}</span><span class="special">;</span></pre></div>
 <div class="refsect1">
-<a name="idp518277424"></a><h2>Description</h2>
+<a name="idp518700864"></a><h2>Description</h2>
 <p>The <code class="computeroutput">variant</code> class template (inspired by Andrei
         Alexandrescu's class of the same name
         [<a class="link" href="../variant/refs.html#variant.refs.ale01a">Ale01A</a>]) is an efficient,
@@ -92,7 +92,7 @@
         of the destination <code class="computeroutput">variant</code>'s bounded types. As well,
         through <code class="computeroutput"><a class="link" href="apply_visitor.html" title="Function apply_visitor">apply_visitor</a></code>,
         <code class="computeroutput">variant</code> supports compile-time checked, type-safe
-        visitation; and through <code class="computeroutput"><a class="link" href="get_idp295310448.html" title="Function get">get</a></code>,
+        visitation; and through <code class="computeroutput"><a class="link" href="get_idp108797984.html" title="Function get">get</a></code>,
         <code class="computeroutput">variant</code> supports run-time checked, type-safe value
         retrieval.</p>
 <p><span class="bold"><strong>Notes</strong></span>:</p>
@@ -126,13 +126,13 @@
             Sequence, thus overcoming this limitation.)</li>
 </ul></div>
 <div class="refsect2">
-<a name="idp518303456"></a><h3>
+<a name="idp518726896"></a><h3>
 <a name="boost.variantconstruct-copy-destruct"></a><code class="computeroutput">variant</code> 
         public
        construct/copy/destruct</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1">
 <li class="listitem">
-<pre class="literallayout"><a name="idp292404096-bb"></a><span class="identifier">variant</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><a name="idp299390352-bb"></a><span class="identifier">variant</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre>
 <div class="variablelist"><table border="0" class="variablelist compact">
 <colgroup>
 <col align="left" valign="top">
@@ -160,7 +160,7 @@
 </table></div>
 </li>
 <li class="listitem">
-<pre class="literallayout"><a name="idp202890240-bb"></a><span class="identifier">variant</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span> <span class="special">&amp;</span> other<span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><a name="idp306637728-bb"></a><span class="identifier">variant</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span> <span class="special">&amp;</span> other<span class="special">)</span><span class="special">;</span></pre>
 <div class="variablelist"><table border="0" class="variablelist compact">
 <colgroup>
 <col align="left" valign="top">
@@ -181,7 +181,7 @@
 </table></div>
 </li>
 <li class="listitem">
-<pre class="literallayout"><a name="idp290331024-bb"></a><span class="identifier">variant</span><span class="special">(</span><span class="identifier">variant</span> <span class="special">&amp;&amp;</span> other<span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><a name="idp300881440-bb"></a><span class="identifier">variant</span><span class="special">(</span><span class="identifier">variant</span> <span class="special">&amp;&amp;</span> other<span class="special">)</span><span class="special">;</span></pre>
 <div class="variablelist"><table border="0" class="variablelist compact">
 <colgroup>
 <col align="left" valign="top">
@@ -206,7 +206,7 @@
 </table></div>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> T<span class="special">&gt;</span> <a name="idp136219744-bb"></a><span class="identifier">variant</span><span class="special">(</span><span class="identifier">T</span> <span class="special">&amp;</span> operand<span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> T<span class="special">&gt;</span> <a name="idp98965760-bb"></a><span class="identifier">variant</span><span class="special">(</span><span class="identifier">T</span> <span class="special">&amp;</span> operand<span class="special">)</span><span class="special">;</span></pre>
 <div class="variablelist"><table border="0" class="variablelist compact">
 <colgroup>
 <col align="left" valign="top">
@@ -235,7 +235,7 @@
 </table></div>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> T<span class="special">&gt;</span> <a name="idp294608048-bb"></a><span class="identifier">variant</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">T</span> <span class="special">&amp;</span> operand<span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> T<span class="special">&gt;</span> <a name="idp303350928-bb"></a><span class="identifier">variant</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">T</span> <span class="special">&amp;</span> operand<span class="special">)</span><span class="special">;</span></pre>
 <div class="variablelist"><table border="0" class="variablelist compact">
 <colgroup>
 <col align="left" valign="top">
@@ -249,7 +249,7 @@
 </table></div>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> T<span class="special">&gt;</span> <a name="idp288656144-bb"></a><span class="identifier">variant</span><span class="special">(</span><span class="identifier">T</span> <span class="special">&amp;&amp;</span> operand<span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> T<span class="special">&gt;</span> <a name="idp309364096-bb"></a><span class="identifier">variant</span><span class="special">(</span><span class="identifier">T</span> <span class="special">&amp;&amp;</span> operand<span class="special">)</span><span class="special">;</span></pre>
 <div class="variablelist"><table border="0" class="variablelist compact">
 <colgroup>
 <col align="left" valign="top">
@@ -270,7 +270,7 @@
 </li>
 <li class="listitem">
 <pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U1<span class="special">,</span> <span class="keyword">typename</span> U2<span class="special">,</span> <span class="special">...</span><span class="special">,</span> <span class="keyword">typename</span> UN<span class="special">&gt;</span> 
-  <a name="idp338002576-bb"></a><span class="identifier">variant</span><span class="special">(</span><span class="identifier">variant</span><span class="special">&lt;</span><span class="identifier">U1</span><span class="special">,</span> <span class="identifier">U2</span><span class="special">,</span> <span class="special">...</span><span class="special">,</span> <span class="identifier">UN</span><span class="special">&gt;</span> <span class="special">&amp;</span> operand<span class="special">)</span><span class="special">;</span></pre>
+  <a name="idp346155856-bb"></a><span class="identifier">variant</span><span class="special">(</span><span class="identifier">variant</span><span class="special">&lt;</span><span class="identifier">U1</span><span class="special">,</span> <span class="identifier">U2</span><span class="special">,</span> <span class="special">...</span><span class="special">,</span> <span class="identifier">UN</span><span class="special">&gt;</span> <span class="special">&amp;</span> operand<span class="special">)</span><span class="special">;</span></pre>
 <div class="variablelist"><table border="0" class="variablelist compact">
 <colgroup>
 <col align="left" valign="top">
@@ -308,7 +308,7 @@
 </li>
 <li class="listitem">
 <pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U1<span class="special">,</span> <span class="keyword">typename</span> U2<span class="special">,</span> <span class="special">...</span><span class="special">,</span> <span class="keyword">typename</span> UN<span class="special">&gt;</span> 
-  <a name="idp80551760-bb"></a><span class="identifier">variant</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span><span class="special">&lt;</span><span class="identifier">U1</span><span class="special">,</span> <span class="identifier">U2</span><span class="special">,</span> <span class="special">...</span><span class="special">,</span> <span class="identifier">UN</span><span class="special">&gt;</span> <span class="special">&amp;</span> operand<span class="special">)</span><span class="special">;</span></pre>
+  <a name="idp309871664-bb"></a><span class="identifier">variant</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span><span class="special">&lt;</span><span class="identifier">U1</span><span class="special">,</span> <span class="identifier">U2</span><span class="special">,</span> <span class="special">...</span><span class="special">,</span> <span class="identifier">UN</span><span class="special">&gt;</span> <span class="special">&amp;</span> operand<span class="special">)</span><span class="special">;</span></pre>
 <div class="variablelist"><table border="0" class="variablelist compact">
 <colgroup>
 <col align="left" valign="top">
@@ -323,7 +323,7 @@
 </li>
 <li class="listitem">
 <pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U1<span class="special">,</span> <span class="keyword">typename</span> U2<span class="special">,</span> <span class="special">...</span><span class="special">,</span> <span class="keyword">typename</span> UN<span class="special">&gt;</span> 
-  <a name="idp336051296-bb"></a><span class="identifier">variant</span><span class="special">(</span><span class="identifier">variant</span><span class="special">&lt;</span><span class="identifier">U1</span><span class="special">,</span> <span class="identifier">U2</span><span class="special">,</span> <span class="special">...</span><span class="special">,</span> <span class="identifier">UN</span><span class="special">&gt;</span> <span class="special">&amp;&amp;</span> operand<span class="special">)</span><span class="special">;</span></pre>
+  <a name="idp305173936-bb"></a><span class="identifier">variant</span><span class="special">(</span><span class="identifier">variant</span><span class="special">&lt;</span><span class="identifier">U1</span><span class="special">,</span> <span class="identifier">U2</span><span class="special">,</span> <span class="special">...</span><span class="special">,</span> <span class="identifier">UN</span><span class="special">&gt;</span> <span class="special">&amp;&amp;</span> operand<span class="special">)</span><span class="special">;</span></pre>
 <div class="variablelist"><table border="0" class="variablelist compact">
 <colgroup>
 <col align="left" valign="top">
@@ -343,7 +343,7 @@
 </table></div>
 </li>
 <li class="listitem">
-<pre class="literallayout"><a name="idp293378864-bb"></a><span class="special">~</span><span class="identifier">variant</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><a name="idp217412560-bb"></a><span class="special">~</span><span class="identifier">variant</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre>
 <div class="variablelist"><table border="0" class="variablelist compact">
 <colgroup>
 <col align="left" valign="top">
@@ -364,11 +364,11 @@
 </ol></div>
 </div>
 <div class="refsect2">
-<a name="idp518447136"></a><h3>
-<a name="idp298071856-bb"></a><code class="computeroutput">variant</code> modifiers</h3>
+<a name="idp518870512"></a><h3>
+<a name="idp295070128-bb"></a><code class="computeroutput">variant</code> modifiers</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1">
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">void</span> <a name="idp198848288-bb"></a><span class="identifier">swap</span><span class="special">(</span><span class="identifier">variant</span> <span class="special">&amp;</span> other<span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="keyword">void</span> <a name="idp295070688-bb"></a><span class="identifier">swap</span><span class="special">(</span><span class="identifier">variant</span> <span class="special">&amp;</span> other<span class="special">)</span><span class="special">;</span></pre>
 <div class="variablelist"><table border="0" class="variablelist compact">
 <colgroup>
 <col align="left" valign="top">
@@ -401,7 +401,7 @@
 </table></div>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="identifier">variant</span> <span class="special">&amp;</span> <a name="idp336644400-bb"></a><span class="keyword">operator</span><span class="special">=</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span> <span class="special">&amp;</span> rhs<span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="identifier">variant</span> <span class="special">&amp;</span> <a name="idp302725648-bb"></a><span class="keyword">operator</span><span class="special">=</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span> <span class="special">&amp;</span> rhs<span class="special">)</span><span class="special">;</span></pre>
 <div class="variablelist"><table border="0" class="variablelist compact">
 <colgroup>
 <col align="left" valign="top">
@@ -438,7 +438,7 @@
 </table></div>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="identifier">variant</span> <span class="special">&amp;</span> <a name="idp337255040-bb"></a><span class="keyword">operator</span><span class="special">=</span><span class="special">(</span><span class="identifier">variant</span> <span class="special">&amp;&amp;</span> rhs<span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="identifier">variant</span> <span class="special">&amp;</span> <a name="idp88247232-bb"></a><span class="keyword">operator</span><span class="special">=</span><span class="special">(</span><span class="identifier">variant</span> <span class="special">&amp;&amp;</span> rhs<span class="special">)</span><span class="special">;</span></pre>
 <div class="variablelist"><table border="0" class="variablelist compact">
 <colgroup>
 <col align="left" valign="top">
@@ -478,7 +478,7 @@
 </table></div>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> T<span class="special">&gt;</span> <span class="identifier">variant</span> <span class="special">&amp;</span> <a name="idp336550512-bb"></a><span class="keyword">operator</span><span class="special">=</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">T</span> <span class="special">&amp;</span> rhs<span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> T<span class="special">&gt;</span> <span class="identifier">variant</span> <span class="special">&amp;</span> <a name="idp304703248-bb"></a><span class="keyword">operator</span><span class="special">=</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">T</span> <span class="special">&amp;</span> rhs<span class="special">)</span><span class="special">;</span></pre>
 <div class="variablelist"><table border="0" class="variablelist compact">
 <colgroup>
 <col align="left" valign="top">
@@ -522,7 +522,7 @@
 </table></div>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> T<span class="special">&gt;</span> <span class="identifier">variant</span> <span class="special">&amp;</span> <a name="idp297384304-bb"></a><span class="keyword">operator</span><span class="special">=</span><span class="special">(</span><span class="identifier">T</span> <span class="special">&amp;&amp;</span> rhs<span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> T<span class="special">&gt;</span> <span class="identifier">variant</span> <span class="special">&amp;</span> <a name="idp301289136-bb"></a><span class="keyword">operator</span><span class="special">=</span><span class="special">(</span><span class="identifier">T</span> <span class="special">&amp;&amp;</span> rhs<span class="special">)</span><span class="special">;</span></pre>
 <div class="variablelist"><table border="0" class="variablelist compact">
 <colgroup>
 <col align="left" valign="top">
@@ -571,11 +571,11 @@
 </ol></div>
 </div>
 <div class="refsect2">
-<a name="idp518561760"></a><h3>
-<a name="idp336765840-bb"></a><code class="computeroutput">variant</code> queries</h3>
+<a name="idp518985056"></a><h3>
+<a name="idp214128448-bb"></a><code class="computeroutput">variant</code> queries</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1">
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">int</span> <a name="idp288369344-bb"></a><span class="identifier">which</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="keyword">int</span> <a name="idp221593392-bb"></a><span class="identifier">which</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>
 <div class="variablelist"><table border="0" class="variablelist compact">
 <colgroup>
 <col align="left" valign="top">
@@ -598,7 +598,7 @@
 </table></div>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">bool</span> <a name="idp294731920-bb"></a><span class="identifier">empty</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="keyword">bool</span> <a name="idp346173104-bb"></a><span class="identifier">empty</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>
 <div class="variablelist"><table border="0" class="variablelist compact">
 <colgroup>
 <col align="left" valign="top">
@@ -626,7 +626,7 @@
 </table></div>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">type_info</span> <span class="special">&amp;</span> <a name="idp297597984-bb"></a><span class="identifier">type</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">type_info</span> <span class="special">&amp;</span> <a name="idp98966368-bb"></a><span class="identifier">type</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>
 <div class="variablelist"><table border="0" class="variablelist compact">
 <colgroup>
 <col align="left" valign="top">
@@ -656,12 +656,12 @@
 </ol></div>
 </div>
 <div class="refsect2">
-<a name="idp518599184"></a><h3>
-<a name="idp97116112-bb"></a><code class="computeroutput">variant</code> relational</h3>
+<a name="idp519022544"></a><h3>
+<a name="idp214061360-bb"></a><code class="computeroutput">variant</code> relational</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1">
 <li class="listitem">
-<pre class="literallayout"><a name="idp295261376-bb"></a><span class="keyword">bool</span> <a name="idp142133376-bb"></a><span class="keyword">operator</span><span class="special">==</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span> <span class="special">&amp;</span> rhs<span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-<span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <span class="keyword">void</span> <a name="idp82398624-bb"></a><span class="keyword">operator</span><span class="special">==</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">U</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>Equality comparison.<div class="variablelist"><table border="0" class="variablelist compact">
+<pre class="literallayout"><a name="idp300700272-bb"></a><span class="keyword">bool</span> <a name="idp300772208-bb"></a><span class="keyword">operator</span><span class="special">==</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span> <span class="special">&amp;</span> rhs<span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+<span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <span class="keyword">void</span> <a name="idp347327664-bb"></a><span class="keyword">operator</span><span class="special">==</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">U</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>Equality comparison.<div class="variablelist"><table border="0" class="variablelist compact">
 <colgroup>
 <col align="left" valign="top">
 <col>
@@ -702,8 +702,8 @@
 </table></div>
 </li>
 <li class="listitem">
-<pre class="literallayout"><a name="idp297790992-bb"></a><span class="keyword">bool</span> <a name="idp293440112-bb"></a><span class="keyword">operator</span><span class="special">!=</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span> <span class="special">&amp;</span> rhs<span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-<span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <span class="keyword">void</span> <a name="idp335388672-bb"></a><span class="keyword">operator</span><span class="special">!=</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">U</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>InEquality comparison.<div class="variablelist"><table border="0" class="variablelist compact">
+<pre class="literallayout"><a name="idp217154528-bb"></a><span class="keyword">bool</span> <a name="idp296717424-bb"></a><span class="keyword">operator</span><span class="special">!=</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span> <span class="special">&amp;</span> rhs<span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+<span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <span class="keyword">void</span> <a name="idp142445392-bb"></a><span class="keyword">operator</span><span class="special">!=</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">U</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>InEquality comparison.<div class="variablelist"><table border="0" class="variablelist compact">
 <colgroup>
 <col align="left" valign="top">
 <col>
@@ -739,8 +739,8 @@
 </table></div>
 </li>
 <li class="listitem">
-<pre class="literallayout"><a name="idp185953024-bb"></a><span class="keyword">bool</span> <a name="idp185953888-bb"></a><span class="keyword">operator</span><span class="special">&lt;</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span> <span class="special">&amp;</span> rhs<span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-<span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <span class="keyword">void</span> <a name="idp293561232-bb"></a><span class="keyword">operator</span><span class="special">&lt;</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">U</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>LessThan comparison.<div class="variablelist"><table border="0" class="variablelist compact">
+<pre class="literallayout"><a name="idp301677984-bb"></a><span class="keyword">bool</span> <a name="idp302910144-bb"></a><span class="keyword">operator</span><span class="special">&lt;</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span> <span class="special">&amp;</span> rhs<span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+<span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <span class="keyword">void</span> <a name="idp347255600-bb"></a><span class="keyword">operator</span><span class="special">&lt;</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">U</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>LessThan comparison.<div class="variablelist"><table border="0" class="variablelist compact">
 <colgroup>
 <col align="left" valign="top">
 <col>
@@ -779,8 +779,8 @@
 </table></div>
 </li>
 <li class="listitem">
-<pre class="literallayout"><a name="idp288571440-bb"></a><span class="keyword">bool</span> <a name="idp336705648-bb"></a><span class="keyword">operator</span><span class="special">&gt;</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span> <span class="special">&amp;</span> rhs<span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-<span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <span class="keyword">void</span> <a name="idp337230784-bb"></a><span class="keyword">operator</span><span class="special">&gt;</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">U</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>GreaterThan comparison.<div class="variablelist"><table border="0" class="variablelist compact">
+<pre class="literallayout"><a name="idp302384576-bb"></a><span class="keyword">bool</span> <a name="idp296786128-bb"></a><span class="keyword">operator</span><span class="special">&gt;</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span> <span class="special">&amp;</span> rhs<span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+<span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <span class="keyword">void</span> <a name="idp309642560-bb"></a><span class="keyword">operator</span><span class="special">&gt;</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">U</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>GreaterThan comparison.<div class="variablelist"><table border="0" class="variablelist compact">
 <colgroup>
 <col align="left" valign="top">
 <col>
@@ -815,8 +815,8 @@
 </table></div>
 </li>
 <li class="listitem">
-<pre class="literallayout"><a name="idp336521984-bb"></a><span class="keyword">bool</span> <a name="idp336522976-bb"></a><span class="keyword">operator</span><span class="special">&lt;=</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span> <span class="special">&amp;</span> rhs<span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-<span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <span class="keyword">void</span> <a name="idp211061344-bb"></a><span class="keyword">operator</span><span class="special">&lt;=</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">U</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>LessThan or Equal comparison.<div class="variablelist"><table border="0" class="variablelist compact">
+<pre class="literallayout"><a name="idp213959744-bb"></a><span class="keyword">bool</span> <a name="idp346037600-bb"></a><span class="keyword">operator</span><span class="special">&lt;=</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span> <span class="special">&amp;</span> rhs<span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+<span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <span class="keyword">void</span> <a name="idp295299264-bb"></a><span class="keyword">operator</span><span class="special">&lt;=</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">U</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>LessThan or Equal comparison.<div class="variablelist"><table border="0" class="variablelist compact">
 <colgroup>
 <col align="left" valign="top">
 <col>
@@ -851,8 +851,8 @@
 </table></div>
 </li>
 <li class="listitem">
-<pre class="literallayout"><a name="idp288858000-bb"></a><span class="keyword">bool</span> <a name="idp288858912-bb"></a><span class="keyword">operator</span><span class="special">&gt;=</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span> <span class="special">&amp;</span> rhs<span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-<span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <span class="keyword">void</span> <a name="idp206187808-bb"></a><span class="keyword">operator</span><span class="special">&gt;=</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">U</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>GreaterThan or Equal comparison.<div class="variablelist"><table border="0" class="variablelist compact">
+<pre class="literallayout"><a name="idp211349584-bb"></a><span class="keyword">bool</span> <a name="idp346609792-bb"></a><span class="keyword">operator</span><span class="special">&gt;=</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">variant</span> <span class="special">&amp;</span> rhs<span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+<span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <span class="keyword">void</span> <a name="idp297709632-bb"></a><span class="keyword">operator</span><span class="special">&gt;=</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">U</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>GreaterThan or Equal comparison.<div class="variablelist"><table border="0" class="variablelist compact">
 <colgroup>
 <col align="left" valign="top">
 <col>
@@ -900,7 +900,7 @@
 </tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="../BOOST_VARIANT_NO_FULL_RECURSIVE_VARIANT_SUPPORT.html"><img src="../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../variant/reference.html#header.boost.variant.variant_hpp"><img src="../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="swap_idp335352448.html"><img src="../../../doc/src/images/next.png" alt="Next"></a>
+<a accesskey="p" href="../BOOST_VARIANT_NO_FULL_RECURSIVE_VARIANT_SUPPORT.html"><img src="../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../variant/reference.html#header.boost.variant.variant_hpp"><img src="../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="swap_idp294827936.html"><img src="../../../doc/src/images/next.png" alt="Next"></a>
 </div>
 </body>
 </html>
