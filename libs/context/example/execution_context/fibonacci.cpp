@@ -9,7 +9,7 @@
 
 #include <boost/context/all.hpp>
 
-#define yield(x) p=x; mctx.resume();
+#define yield(x) p=x; mctx();
 
 int main() {
     int n=35;
@@ -28,9 +28,10 @@ int main() {
             }
         });
     for(int i=0;i<10;++i){
-        ctx.resume();
-        std::cout<<p<<std::endl;
+        ctx();
+        std::cout<<p<<" ";
     }
+    std::cout<<std::endl;
 
     std::cout << "main: done" << std::endl;
 }

@@ -1,3 +1,4 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
@@ -33,7 +34,7 @@
 
 </span>BOOST_MOVE_BASE(BASE_TYPE, ARG)</pre></div>
 <div class="refsect1">
-<a name="idp323750960"></a><h2>Description</h2>
+<a name="idp336710032"></a><h2>Description</h2>
 <p>This macro is used to achieve portable optimal move constructors.</p>
 <p>When implementing the move constructor, in C++03 compilers the moved-from argument must be cast to the base type before calling <code class="computeroutput">boost::move()</code> due to rvalue reference limitations.</p>
 <p>In C++11 compilers the cast from a rvalue reference of a derived type to a rvalue reference of a base type is implicit. </p>

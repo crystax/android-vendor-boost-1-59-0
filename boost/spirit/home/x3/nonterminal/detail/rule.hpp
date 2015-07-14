@@ -11,7 +11,10 @@
 #pragma once
 #endif
 
+#include <boost/spirit/home/x3/auxiliary/guard.hpp>
 #include <boost/spirit/home/x3/core/parser.hpp>
+#include <boost/spirit/home/x3/core/skip_over.hpp>
+#include <boost/spirit/home/x3/directive/expect.hpp>
 #include <boost/spirit/home/x3/support/traits/make_attribute.hpp>
 #include <boost/spirit/home/x3/support/utility/sfinae.hpp>
 #include <boost/spirit/home/x3/nonterminal/detail/transform_attribute.hpp>
@@ -25,8 +28,8 @@ namespace boost { namespace spirit { namespace x3
 {
     template <typename ID>
     struct identity;
-    
-    template <typename ID, typename Attribute = unused_type>
+
+    template <typename ID, typename Attribute = unused_type, bool force_attribute = false>
     struct rule;
 
     struct parse_pass_context_tag;
@@ -43,7 +46,7 @@ namespace boost { namespace spirit { namespace x3
             bool r;
         };
     }
-    
+
     // default parse_rule implementation
     template <typename ID, typename Attribute, typename Iterator
       , typename Context, typename ActualAttribute>
@@ -88,7 +91,7 @@ namespace boost { namespace spirit { namespace x3 { namespace detail
         detail::simple_trace_type& f;
     };
 #endif
-    
+
     template <typename ID, typename Iterator, typename Context, typename Enable = void>
     struct has_on_error : mpl::false_ {};
 
@@ -106,7 +109,7 @@ namespace boost { namespace spirit { namespace x3 { namespace detail
         >
       : mpl::true_
     {};
-    
+
     template <typename ID, typename Iterator, typename Attribute, typename Context, typename Enable = void>
     struct has_on_success : mpl::false_ {};
 
@@ -136,7 +139,7 @@ namespace boost { namespace spirit { namespace x3 { namespace detail
     {
         typedef identity<ID> type;
     };
-    
+
     template <typename ID, typename RHS, typename Context>
     Context const&
     make_rule_context(RHS const& rhs, Context const& context
@@ -144,7 +147,7 @@ namespace boost { namespace spirit { namespace x3 { namespace detail
     {
         return context;
     }
-    
+
     template <typename ID, typename RHS, typename Context>
     auto make_rule_context(RHS const& rhs, Context const& context
       , mpl::true_ /* is_default_parse_rule */ )
@@ -163,7 +166,7 @@ namespace boost { namespace spirit { namespace x3 { namespace detail
         {
             return true;
         }
-        
+
         template <typename Iterator, typename Context, typename ActualAttribute>
         static bool call_on_success(
             Iterator& first, Iterator const& last
@@ -179,7 +182,7 @@ namespace boost { namespace spirit { namespace x3 { namespace detail
             );
             return pass;
         }
-        
+
         template <typename RHS, typename Iterator, typename Context
           , typename RContext, typename ActualAttribute>
         static bool parse_rhs_main(
@@ -219,7 +222,7 @@ namespace boost { namespace spirit { namespace x3 { namespace detail
                 r = call_on_success(first_, i, context, attr
                   , has_on_success<ID, Iterator, Context, ActualAttribute>());
             }
-            
+
             if (r)
                 first = i;
             return r;
@@ -331,7 +334,7 @@ namespace boost { namespace spirit { namespace x3 { namespace detail
 #endif
                 ok_parse=parse_rhs(rhs, first, last, context, attr_, attr_
                    , mpl::bool_
-                     < (  RHS::has_action 
+                     < (  RHS::has_action
                        && !ExplicitAttrPropagation::value
                        )
                      >()
