@@ -7,7 +7,7 @@
 
 [section:econtext Class execution_context]
 
-[important __econtext__ is supported only by C++14.]
+[important __econtext__ requires C++14.]
 
 Class __econtext__ encapsulates __fcontext__ and related functions (
 __jump_fcontext__ and __make_fcontext__) as well as stack management.
@@ -27,38 +27,52 @@ __econtext__ permits access to the current, active context via
 
         int main() {
             std::istringstream is("1+1");
-            bool done=false;
             char c;
+            bool done=false;
+            std::exception_ptr except;
 
             // create handle to main execution context
-            boost::context::execution_context main_ctx(
-                boost::context::execution_context::current() );
+            auto main_ctx( boost::context::execution_context::current() );
 
-            // executes parser in new execution context
+            // execute parser in new execution context
             boost::context::execution_context parser_ctx(
-                boost::context::fixedsize_stack(),
-                [&main_ctx,&is,&c,&done](){
+                    boost::context::fixedsize_stack(),
+                    [&main_ctx,&is,&c,&done,&except](){
                     // create parser with callback function
-                    Parser p(is,
-                             [&main_ctx,&c](char ch){
-                                 c=ch;
-                                 // resume main execution context
-                                 main_ctx.resume();
-                             });
-                    // start recursive parsing
-                    p.run();
-                    done=true;
-                    // return to main execution context
-                    main_ctx.resume();
-                });
+                    Parser p( is,
+                              [&main_ctx,&c](char ch){
+                                    c=ch;
+                                    // resume main execution context
+                                    main_ctx();
+                            });
+                        try {
+                            // start recursive parsing
+                            p.run();
+                        } catch ( ... ) {
+                            // store other exceptions in exception-pointer
+                            except = std::current_exception();
+                        }
+                        // set termination flag
+                        done=true;
+                        // resume main execution context
+                        main_ctx();
+                    });
 
             // user-code pulls parsed data from parser
-            // inverted control flow
-            parser_ctx.resume();
-            do {
+            // invert control flow
+            parser_ctx();
+            if ( except) {
+                std::rethrow_exception( except);
+            }
+            while( ! done) {
                 printf("Parsed: %c\n",c);
-                parser_ctx.resume();
-            } while( ! done);
+                parser_ctx();
+                if ( except) {
+                    std::rethrow_exception( except);
+                }
+            }
+
+            std::cout << "main: done" << std::endl;
         }
 
         output:
@@ -73,26 +87,24 @@ pulls parsed symbols from the parser - instead to get pushed from the parser
 (via callback).
 
 The interface of __econtext__ does not transfer data. This is not required
-because usually sharing data's address (pointer/reference) sufficient.
+because usually sharing data's address (pointer/reference of lvalues) is sufficient.
 
-If the code executed by __econtext__ emits an exception, `std::terminate()` will
-be called.
-
-[important Do not jump from inside a catch block and than re-throw exceptions in
-another execution context.]
+If the code executed by __econtext__ emits an exception, the application is terminated.
+['std::exception_ptr] can be used to transfer exceptions between different execution
+contexts.
 
 Sometimes it is necessary to unwind the stack of an unfinished context to
 destroy local stack variables so they can release allocated resources (RAII
 pattern). The user is responsible for this task.
 
-[heading allocating control strutures on top of stack]
+[heading allocating control structures on top of stack]
 Allocating control structures on top of the stack requires to allocated the
 __stack_context__ and create the control structure with placement new before
 __econtext__ is created.
 [note The user is responsible for destructing the control structure at the top
 of the stack.]
 
-        // stack-alloctor used for (de-)allocating stack
+        // stack-allocator used for (de-)allocating stack
         fixedsize_stack salloc( 4048);
         // allocate stack space
         stack_context sctx( salloc.allocate() );
@@ -118,11 +130,13 @@ of the stack.]
         };
 
 [heading exception handling]
-If the function executed inside a __econtext__ emitts ans exception, `std::terminate()` is
-called - `std::exception_ptr` can used to store exceptions thrown inside the other context.
+If the function executed inside a __econtext__ emits ans exception, the
+application is terminated by calling ['std::terminate(). ['std::exception_ptr]
+can be used to transfer exceptions between different execution contexts.
 
 [heading parameter passing]
-Input and output parameters are transfered via a lambda capture list and references/pointers.
+Input and output parameters are transferred via a lambda capture list and
+references/pointers.
 
         class X {
         private:
@@ -143,18 +157,18 @@ Input and output parameters are transfered via a lambda capture list and referen
                             try {
                                 int i = * inp_;
                                 outp_ = boost::lexical_cast< std::string >( i);
-                                caller_.resume();
+                                caller_();
                             } catch (...) {
-                                excptr_ = std::current_exception();
+                                excptr_=std::current_exception();
                             }
                          })
             {}
 
             std::string operator()( int i) {
                 inp_ = & i;
-                callee_.resume();
-                if ( excptr_) {
-                    std::rethrow_exception( excptr_);
+                callee_();
+                if(excptr_){
+                    std::rethrow_exception(excptr_);
                 }
                 return outp_;
             }
@@ -185,11 +199,7 @@ Input and output parameters are transfered via a lambda capture list and referen
             template< typename StackAlloc, typename Fn, typename ... Args >
             execution_context( preallocated palloc, StackAlloc salloc, Fn && fn, Args && ... args);
 
-            void resume() noexcept;
-
-            explicit operator bool() const noexcept;
-
-            bool operator!() const noexcept;
+            void operator()() noexcept;
         };
 
 [heading `static execution_context current()`]
@@ -223,28 +233,16 @@ execution context.]]
 `fn`. Used to store control structures on top of the stack.]]
 ]
 
-[heading `void resume()`]
+[heading `void operator()() noexcept`]
 [variablelist
 [[Effects:] [Stores internally the current context data (stack pointer,
 instruction pointer, and CPU registers) to the current active context and
 restores the context data from `*this`, which implies jumping to `*this`'s
 execution context.]]
-[[Note:] [The behaviour is undefined if `resume()` is called while `execution_context::current()`
-returns `*this` (e.g. resuming an alredy running cotnext).]]
-[[Throws:] [Nothing.]]
-]
-
-[heading `explicit operator bool() const`]
-[variablelist
-[[Returns:] [If `*this` refers to an invalid context or the context-function
-has returned (completed), the function returns `false`. Otherwise `true`.]]
-[[Throws:] [Nothing.]]
-]
-
-[heading `bool operator!() const`]
-[variablelist
-[[Returns:] [If `*this` refers to an invalid context or the context-function
-has returned (completed), the function returns `true`. Otherwise `false`.]]
+[[Note:] [The behaviour is undefined if `operator()()` is called while `execution_context::current()`
+returns `*this` (e.g. resuming an already running context). If the top-level context
+function returns, `std::exit()` is called.]]
+[[Returns:] [Reference to `*this`.]]
 [[Throws:] [Nothing.]]
 ]
 
@@ -261,8 +259,21 @@ has returned (completed), the function returns `true`. Otherwise `false`.]]
 
 [heading `preallocated( void * sp, std:size_t size, stack_allocator sctx)`]
 [variablelist
-[[Effects:] [Crreates an object of preallocated.]]
+[[Effects:] [Creates an object of preallocated.]]
 ]
+
+[section:winfibers Using WinFiber-API]
+
+Because the TIB (thread information block) is not fully described in the MSDN,
+it might be possible that not all required TIB-parts are swapped.
+With compiler flag `BOOST_USE_WINFIBERS` `execution_context` uses internally the
+Windows Fiber API.
+[note The first call of `execution_context::operator()` converts the thread into a Windows fiber
+by invoking `ConvertThreadToFiber()`.
+If desired, `ConvertFiberToThread()` has to be called by the user explicitly in order to
+release resources allocated by `ConvertThreadToFiber()` (e.g. after using boost.context).]
+
+[endsect]
 
 
 [endsect]

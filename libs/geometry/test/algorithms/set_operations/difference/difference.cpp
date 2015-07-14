@@ -23,12 +23,8 @@
 
 #include <boost/geometry/algorithms/correct.hpp>
 #include <boost/geometry/algorithms/is_valid.hpp>
-#include <boost/geometry/algorithms/perimeter.hpp>
 
-#include <boost/geometry/multi/algorithms/correct.hpp>
-#include <boost/geometry/multi/algorithms/intersection.hpp>
-#include <boost/geometry/multi/algorithms/within.hpp>
-#include <boost/geometry/multi/io/wkt/wkt.hpp>
+#include <boost/geometry/io/wkt/wkt.hpp>
 
 #include <boost/geometry/geometries/point_xy.hpp>
 
@@ -36,7 +32,6 @@
 #include <algorithms/test_overlay.hpp>
 #include <algorithms/overlay/overlay_cases.hpp>
 #include <algorithms/overlay/multi_overlay_cases.hpp>
-#include <boost/geometry/multi/io/wkt/wkt.hpp>
 
 
 #ifdef HAVE_TTMATH
@@ -175,6 +170,33 @@ void test_ticket_11121()
     BOOST_CHECK(bg::is_valid(sym_diff));
 }
 
+template <typename CoordinateType>
+void test_bug21155501()
+{
+    typedef bg::model::point<CoordinateType,2,bg::cs::cartesian> point_type;
+    typedef bg::model::polygon
+        <
+        point_type, /*ClockWise*/false, /*Closed*/false
+        > polygon_type;
+    typedef bg::model::multi_polygon<polygon_type> multipolygon_type;
+
+    polygon_type g1;
+    bg::read_wkt("POLYGON((-8.3935546875 27.449790329784214,4.9658203125 18.729501999072138,11.8212890625 23.563987128451217,9.7119140625 25.48295117535531,9.8876953125 31.728167146023935,8.3056640625 32.99023555965106,8.5693359375 37.16031654673677,-1.8896484375 35.60371874069731,-0.5712890625 32.02670629333614,-8.9208984375 29.458731185355344,-8.3935546875 27.449790329784214))", g1);
+    multipolygon_type g2;
+    bg::read_wkt("MULTIPOLYGON(((4.9658203125 18.729501999072138,-3.4868710311820115 24.246968623627644,8.3589904332912 33.833614418115445,8.3056640625 32.99023555965106,9.8876953125 31.728167146023935,9.7119140625 25.48295117535531,11.8212890625 23.563987128451217,4.9658203125 18.729501999072138)),((-3.88714525609152 24.508246314579743,-8.3935546875 27.449790329784214,-8.9208984375 29.458731185355344,-0.5712890625 32.02670629333614,-1.8896484375 35.60371874069731,8.5693359375 37.16031654673677,8.362166569827938 33.883846345901595,-3.88714525609152 24.508246314579743)))", g2);
+    bg::correct(g1);
+    bg::correct(g2);
+
+    multipolygon_type diff12, diff21, sym_diff;
+    bg::difference(g1, g2, diff12);
+    bg::difference(g2, g1, diff21);
+    bg::sym_difference(g1, g2, sym_diff);
+
+    BOOST_CHECK(bg::is_valid(diff12));
+    BOOST_CHECK(bg::is_valid(diff21));
+    BOOST_CHECK(bg::is_valid(sym_diff));
+}
+
 template <typename P>
 void test_all()
 {
@@ -259,7 +281,8 @@ void test_all()
     test_one<polygon, polygon, polygon>("fitting",
         fitting[0], fitting[1],
         1, 9, 21.0,
-        1, 4, 4.0);
+        1, 4, 4.0,
+        1, 5, 25.0);
 
     test_one<polygon, polygon, polygon>("identical",
         identical[0], identical[1],
@@ -324,7 +347,8 @@ void test_all()
     test_one<polygon, polygon, polygon>("side_side",
         side_side[0], side_side[1],
         1, 5, 1,
-        1, 5, 1);
+        1, 5, 1,
+        1, 7, 2);
 
 #if ! defined(BOOST_GEOMETRY_NO_ROBUSTNESS)
     test_one<polygon, polygon, polygon>("buffer_mp1",
@@ -357,7 +381,7 @@ void test_all()
     // rings might be discarded. We check area only
     test_one<polygon, polygon, polygon>("isovist",
         isovist1[0], isovist1[1],
-        -1, -1, 0.279121,
+        -1, -1, 0.279132,
         -1, -1, 224.8892,
         0.001);
     // SQL Server gives: 0.279121891701124 and 224.889211358929
@@ -387,7 +411,8 @@ void test_all()
     test_one<polygon, polygon, polygon>("geos_3",
         geos_3[0], geos_3[1],
         1, -1, 16211128.5,
-        1, -1, 13180420.0);
+        1, -1, 13180420.0,
+        1, -1, 16211128.5 + 13180420.0);
 
     test_one<polygon, polygon, polygon>("geos_4",
         geos_4[0], geos_4[1],
@@ -397,7 +422,8 @@ void test_all()
     test_one<polygon, polygon, polygon>("ggl_list_20110306_javier",
         ggl_list_20110306_javier[0], ggl_list_20110306_javier[1],
         1, -1, 71495.3331,
-        2, -1, 8960.49049);
+        2, -1, 8960.49049,
+        2, -1, 71495.3331 + 8960.49049);
 
     test_one<polygon, polygon, polygon>("ggl_list_20110307_javier",
         ggl_list_20110307_javier[0], ggl_list_20110307_javier[1],
@@ -410,8 +436,8 @@ void test_all()
         test_one<polygon, polygon, polygon>("ggl_list_20110716_enrico",
             ggl_list_20110716_enrico[0], ggl_list_20110716_enrico[1],
             3, -1, 35723.8506317139,
-            1, -1, 58456.4964294434
-            );
+            1, -1, 58456.4964294434,
+            1, -1, 35723.8506317139 + 58456.4964294434);
     }
 
     test_one<polygon, polygon, polygon>("ggl_list_20110820_christophe",
@@ -433,8 +459,8 @@ void test_all()
     // however, some long spikes are still generated in the resulting difference
     test_one<polygon, polygon, polygon>("ggl_list_20110627_phillip",
         ggl_list_20110627_phillip[0], ggl_list_20110627_phillip[1],
-        1, -1,
-        if_typed_tt<ct>(0.0000000000001105367, 0.00021401892),
+        if_typed_tt<ct>(1, 1), -1,
+        if_typed_tt<ct>(0.0000000000001105367, 0.000125137888971949),
         1, -1, 3577.40960816756,
         0.01
         );
@@ -456,8 +482,8 @@ void test_all()
 #if ! defined(BOOST_GEOMETRY_NO_ROBUSTNESS)
     test_one<polygon, polygon, polygon>("ticket_9081_15",
             ticket_9081_15[0], ticket_9081_15[1],
-            1, 10, 0.0334529710902111,
-            0, 0, 0);
+            2, 10, 0.0334529710902111,
+            1, 4, 5.3469555172380723e-010);
 #endif
 
     test_one<polygon, polygon, polygon>("ticket_9081_314",
@@ -642,7 +668,9 @@ void test_specific()
     test_one<polygon, polygon, polygon>("ggl_list_20120717_volker",
         ggl_list_20120717_volker[0], ggl_list_20120717_volker[1],
         1, 11, 3371540,
-        1, 4, 384, 0.001);
+        1, 4, 385,
+        1, 16, 3371540 + 385,
+        0.001);
 
     test_one<polygon, polygon, polygon>("ticket_10658",
         ticket_10658[0], ticket_10658[1],
@@ -652,7 +680,7 @@ void test_specific()
     test_one<polygon, polygon, polygon>("ticket_11121",
         ticket_11121[0], ticket_11121[1],
         2, 8, 489763.5,
-        1, 4, 6743503.5);
+        1, 4, 6731652.0);
 }
 
 
@@ -672,14 +700,18 @@ int test_main(int, char* [])
         ("MULTIPOLYGON(((516 2484,516 1608,1308 1932,2094 2466,2094 3150,1308 3066,516 2484)))");
 
     test_ticket_10835<int>
-        ("MULTILINESTRING((5239 2113,5233 2114),(4795 2205,1020 2986))",
-         "MULTILINESTRING((5239 2113,5233 2114),(4795 2205,1460 2895))");
+        ("MULTILINESTRING((5239 2113,5233 2114),(4794 2205,1020 2986))",
+         "MULTILINESTRING((5239 2113,5233 2114),(4794 2205,1460 2895))");
 
     test_ticket_10835<double>
         ("MULTILINESTRING((5239 2113,5232.52 2114.34),(4794.39 2205,1020 2986))",
          "MULTILINESTRING((5239 2113,5232.52 2114.34),(4794.39 2205,1459.78 2895))");
 
     test_ticket_11121<int>();
+
+#ifdef BOOST_GEOMETRY_TEST_ENABLE_FAILING
+    test_bug21155501<double>();
+#endif
 
 #if ! defined(BOOST_GEOMETRY_TEST_ONLY_ONE_TYPE)
     test_all<bg::model::d2::point_xy<float> >();

@@ -1,7 +1,7 @@
 // Boost.Geometry (aka GGL, Generic Geometry Library)
 // Unit Test
 
-// Copyright (c) 2007-2012 Barend Gehrels, Amsterdam, the Netherlands.
+// Copyright (c) 2007-2015 Barend Gehrels, Amsterdam, the Netherlands.
 // Use, modification and distribution is subject to the Boost Software License,
 // Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
 // http://www.boost.org/LICENSE_1_0.txt)
@@ -30,9 +30,9 @@
 #include <boost/geometry/geometries/geometries.hpp>
 
 
-#include <boost/geometry/multi/geometries/multi_point.hpp>
-#include <boost/geometry/multi/geometries/multi_linestring.hpp>
-#include <boost/geometry/multi/geometries/multi_polygon.hpp>
+#include <boost/geometry/geometries/multi_point.hpp>
+#include <boost/geometry/geometries/multi_linestring.hpp>
+#include <boost/geometry/geometries/multi_polygon.hpp>
 
 #include <boost/geometry/strategies/strategies.hpp>
 
@@ -195,11 +195,12 @@ void test_one(std::string const& caseid,
         int expected_count1,
         int expected_point_count1,
         double expected_area1,
-
         int expected_count2,
         int expected_point_count2,
         double expected_area2,
-
+        int expected_count_s,
+        int expected_point_count_s,
+        double expected_area_s,
         double percentage = 0.0001)
 {
 #ifdef BOOST_GEOMETRY_CHECK_WITH_SQLSERVER
@@ -234,10 +235,9 @@ void test_one(std::string const& caseid,
         expected_count2, expected_point_count2,
         expected_area2, percentage);
     test_difference<OutputType>(caseid + "_s", g1, g2,
-        expected_count1 + expected_count2,
-        expected_point_count1 >= 0 && expected_point_count2 >= 0
-            ? (expected_point_count1 + expected_point_count2) : -1,
-        expected_area1 + expected_area2,
+        expected_count_s,
+        expected_point_count_s,
+        expected_area_s,
         percentage, true);
 
 
@@ -273,6 +273,27 @@ void test_one(std::string const& caseid,
         << std::endl;
 #endif
 
+}
+
+template <typename OutputType, typename G1, typename G2>
+void test_one(std::string const& caseid,
+        std::string const& wkt1, std::string const& wkt2,
+        int expected_count1,
+        int expected_point_count1,
+        double expected_area1,
+        int expected_count2,
+        int expected_point_count2,
+        double expected_area2,
+        double percentage = 0.0001)
+{
+    test_one<OutputType, G1, G2>(caseid, wkt1, wkt2,
+        expected_count1, expected_point_count1, expected_area1,
+        expected_count2, expected_point_count2, expected_area2,
+        expected_count1 + expected_count2,
+        expected_point_count1 >= 0 && expected_point_count2 >= 0
+            ? (expected_point_count1 + expected_point_count2) : -1,
+        expected_area1 + expected_area2,
+        percentage);
 }
 
 template <typename OutputType, typename G1, typename G2>
