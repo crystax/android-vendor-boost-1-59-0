@@ -80,22 +80,16 @@ namespace client { namespace ast
     inline std::ostream& operator<<(std::ostream& out, nil) { out << "nil"; return out; }
 }}
 
-BOOST_FUSION_ADAPT_STRUCT(
-    client::ast::signed_,
-    (char, sign)
-    (client::ast::operand, operand_)
+BOOST_FUSION_ADAPT_STRUCT(client::ast::signed_,
+    sign, operand_
 )
 
-BOOST_FUSION_ADAPT_STRUCT(
-    client::ast::operation,
-    (char, operator_)
-    (client::ast::operand, operand_)
+BOOST_FUSION_ADAPT_STRUCT(client::ast::operation,
+    operator_, operand_
 )
 
-BOOST_FUSION_ADAPT_STRUCT(
-    client::ast::expression,
-    (client::ast::operand, first)
-    (std::list<client::ast::operation>, rest)
+BOOST_FUSION_ADAPT_STRUCT(client::ast::expression,
+    first, rest
 )
 
 namespace client
@@ -319,8 +313,8 @@ main()
         ast_expression expression;          // Our program (AST)
         compiler compile(code);             // Compiles the program
 
-        std::string::const_iterator iter = str.begin();
-        std::string::const_iterator end = str.end();
+        iterator_type iter = str.begin();
+        iterator_type const end = str.end();
         boost::spirit::x3::ascii::space_type space;
         bool r = phrase_parse(iter, end, calc, space, expression);
 

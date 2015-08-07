@@ -150,9 +150,10 @@
       C++11 provided the <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">alignment_of</span></code> trait in the standard library
       to query the alignment requirement of a type. Unfortunately some C++ standard
       library vendors do not implement it in an entirely standard conforming manner,
-      such as for array types (libc++ as far as clang 3.4). This library provides
-      it for those implementations and also for C++03 compilers where it is equally
-      useful.
+      such as for array types (libc++ as far as clang 3.4). Other vendor implementations
+      report incorrect values for certain types, such as pointer to members (msvc
+      14.0). This library provides it for those implementations and also for C++03
+      compilers where it is equally useful.
     </p>
 <h4>
 <a name="align.rationale.h3"></a>

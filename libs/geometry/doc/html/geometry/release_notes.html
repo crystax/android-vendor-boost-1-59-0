@@ -60,6 +60,14 @@
           New algorithm is_empty, returning true if the geometry represents the empty
           set
         </li>
+<li class="listitem">
+          The envelope algorithm supports pointlike and linear geometries in the
+          spherical equatorial coordinate system
+        </li>
+<li class="listitem">
+          The envelope algorithm supports pointlike geometries in the geographic
+          coordinate system
+        </li>
 </ul></div>
 <p>
       <span class="bold"><strong>Improvements</strong></span>
@@ -88,12 +96,17 @@
           Support easy enumeration of all elements with BOOST_FOREACH
         </li>
 <li class="listitem">
+          <a href="https://svn.boost.org/trac/boost/ticket/11232" target="_top">11232</a>
+          Feature request - relate()
+        </li>
+<li class="listitem">
           <a href="https://svn.boost.org/trac/boost/ticket/11236" target="_top">11236</a>
           Invalid result of centroid() for integer coordinate type
         </li>
 <li class="listitem">
-          <a href="https://svn.boost.org/trac/boost/ticket/11232" target="_top">11232</a>
-          Feature request - relate()
+          <a href="https://svn.boost.org/trac/boost/ticket/11268" target="_top">11268</a>
+          Regression in boost::geometry::intersection interface with multi_linestring
+          and box -- does not compile on 1.57 VS 1.55
         </li>
 <li class="listitem">
           <a href="https://svn.boost.org/trac/boost/ticket/11332" target="_top">11332</a>
@@ -103,6 +116,10 @@
           <a href="https://svn.boost.org/trac/boost/ticket/11346" target="_top">11346</a>
           Segment iterator does not work with ranges returning values instead of
           references
+        </li>
+<li class="listitem">
+          <a href="https://svn.boost.org/trac/boost/ticket/11436" target="_top">11436</a>
+          sym_difference(py1, py2, mpy) returns invalid multipolygon
         </li>
 </ul></div>
 <p>
@@ -122,6 +139,10 @@
 <li class="listitem">
           In rescaling round instead of truncate to the integer grid (this fix and
           the previous mentioned can have some impact on output geometries)
+        </li>
+<li class="listitem">
+          Fix potential infinite loop in detail::has_spikes (the loop can happen
+          if the points passed have NaN coordinates)
         </li>
 </ul></div>
 <h4>

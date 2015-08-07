@@ -19,7 +19,6 @@
 #define BOOST_TEST_UNIT_TEST_PARAMETERS_IPP_012205GER
 
 // Boost.Test
-
 #include <boost/test/unit_test_parameters.hpp>
 #include <boost/test/utils/basic_cstring/basic_cstring.hpp>
 #include <boost/test/utils/basic_cstring/compare.hpp>
@@ -27,6 +26,8 @@
 #include <boost/test/utils/fixed_mapping.hpp>
 #include <boost/test/debug.hpp>
 #include <boost/test/framework.hpp>
+
+#include <boost/test/detail/throw_exception.hpp>
 
 // Boost.Runtime.Param
 #include <boost/test/utils/runtime/cla/dual_name_parameter.hpp>
@@ -161,6 +162,7 @@ std::string COLOR_OUTPUT      = "color_output";
 std::string DETECT_FP_EXCEPT  = "detect_fp_exceptions";
 std::string DETECT_MEM_LEAKS  = "detect_memory_leaks";
 std::string LIST_CONTENT      = "list_content";
+std::string LIST_LABELS       = "list_labels";
 std::string LOG_FORMAT        = "log_format";
 std::string LOG_LEVEL         = "log_level";
 std::string LOG_SINK          = "log_sink";
@@ -191,6 +193,7 @@ parameter_2_env_var( const_string param_name )
         s_mapping[DETECT_FP_EXCEPT]     = "BOOST_TEST_DETECT_FP_EXCEPTIONS";
         s_mapping[DETECT_MEM_LEAKS]     = "BOOST_TEST_DETECT_MEMORY_LEAK";
         s_mapping[LIST_CONTENT]         = "BOOST_TEST_LIST_CONTENT";
+        s_mapping[LIST_CONTENT]         = "BOOST_TEST_LIST_LABELS";
         s_mapping[LOG_FORMAT]           = "BOOST_TEST_LOG_FORMAT";
         s_mapping[LOG_LEVEL]            = "BOOST_TEST_LOG_LEVEL";
         s_mapping[LOG_SINK]             = "BOOST_TEST_LOG_SINK";
@@ -256,6 +259,14 @@ retrieve_parameter( const_string parameter_name, cla::parser const& s_cla_parser
 
 //____________________________________________________________________________//
 
+void
+disable_use( cla::parameter const&, std::string const& )
+{
+    BOOST_TEST_SETUP_ASSERT( false, "parameter break_exec_path is disabled in this release" );
+}
+
+//____________________________________________________________________________//
+
 } // local namespace
 
 void
@@ -263,7 +274,7 @@ init( int& argc, char** argv )
 {
     using namespace cla;
 
-    try {
+    BOOST_TEST_IMPL_TRY {
         if( s_cla_parser.num_params() != 0 )
             s_cla_parser.reset();
         else
@@ -273,7 +284,8 @@ init( int& argc, char** argv )
                    cla::description = "Automatically starts debugger if system level error (signal) occurs")
               << cla::named_parameter<std::string>( BREAK_EXEC_PATH )
                 - (cla::prefix = "--",cla::separator = "=",cla::guess_name,cla::optional,
-                   cla::description = "For the exception safety testing allows to break at specific execution path")
+                   cla::description = "For the exception safety testing allows to break at specific execution path",
+                   cla::handler = &disable_use)
               << cla::dual_name_parameter<bool>( BUILD_INFO + "|i" )
                 - (cla::prefix = "--|-",cla::separator = "=| ",cla::guess_name,cla::optional,
                    cla::description = "Shows library build information" )
@@ -301,7 +313,7 @@ init( int& argc, char** argv )
               << cla::dual_name_parameter<unit_test::output_format>( OUTPUT_FORMAT + "|o" )
                 - (cla::prefix = "--|-",cla::separator = "=| ",cla::guess_name,cla::optional,
                    cla::description = "Specifies output format (both log and report)")
-              << cla::dual_name_parameter<int>( RANDOM_SEED + "|a" )
+              << cla::dual_name_parameter<unsigned>( RANDOM_SEED + "|a" )
                 - (cla::prefix = "--|-",cla::separator = "=| ",cla::guess_name,cla::optional,cla::optional_value,
                    cla::description = "Allows to switch between sequential and random order of test units execution.\n"
                                       "Optionally allows to specify concrete seed for random number generator")
@@ -329,6 +341,9 @@ init( int& argc, char** argv )
               << cla::dual_name_parameter<unit_test::output_format>( LIST_CONTENT + "|j" )
                 - (cla::prefix = "--|-",cla::separator = "=| ",cla::guess_name,cla::optional,cla::optional_value,
                    cla::description = "Lists the content of test tree - names of all test suites and test cases")
+              << cla::named_parameter<bool>( LIST_LABELS )
+                - (cla::prefix = "--",cla::separator = "= ",cla::guess_name,cla::optional,
+                   cla::description = "Lists all available labels")
               << cla::named_parameter<bool>( USE_ALT_STACK )
                 - (cla::prefix = "--",cla::separator = "=",cla::guess_name,cla::optional,
                    cla::description = "Turns on/off usage of an alternative stack for signal handling")
@@ -345,7 +360,7 @@ init( int& argc, char** argv )
 
         if( s_cla_parser["help"] ) {
             s_cla_parser.help( std::cout );
-            throw framework::nothing_to_test();
+            BOOST_TEST_IMPL_THROW( framework::nothing_to_test() );
         }
 
         s_report_format     = retrieve_parameter( REPORT_FORMAT, s_cla_parser, unit_test::OF_CLF );
@@ -358,13 +373,13 @@ init( int& argc, char** argv )
 
         s_test_to_run = retrieve_parameter<std::list<std::string> >( TESTS_TO_RUN, s_cla_parser );
     }
-    catch( rt::logic_error const& ex ) {
+    BOOST_TEST_IMPL_CATCH( rt::logic_error, ex ) {
         std::ostringstream err;
 
         err << "Fail to process runtime parameters: " << ex.msg() << std::endl;
         s_cla_parser.usage( err );
 
-        throw framework::setup_error( err.str() );
+        BOOST_TEST_SETUP_ASSERT( false, err.str() );
     }
 }
 
@@ -440,6 +455,14 @@ output_format
 list_content()
 {
     return retrieve_parameter( LIST_CONTENT, s_cla_parser, unit_test::OF_INVALID, unit_test::OF_CLF );
+}
+
+//____________________________________________________________________________//
+
+bool
+list_labels()
+{
+    return retrieve_parameter( LIST_LABELS, s_cla_parser, false );
 }
 
 //____________________________________________________________________________//
@@ -553,7 +576,7 @@ log_sink()
 long
 detect_memory_leaks()
 {
-    static int s_value = -1;
+    static long s_value = -1;
 
     if( s_value >= 0 )
         return s_value;
@@ -564,11 +587,11 @@ detect_memory_leaks()
     if( runtime::interpret_argument_value_impl<bool>::_( value, bool_val ) )
         s_value = *bool_val ? 1L : 0L;
     else {
-        try {
+        BOOST_TEST_IMPL_TRY {
             // if representable as long - this is leak number
             s_value = boost::lexical_cast<long>( value );
         }
-        catch( boost::bad_lexical_cast const& ) {
+        BOOST_TEST_IMPL_CATCH0( boost::bad_lexical_cast ) {
             // value is leak report file and detection is enabled
             s_value = 1L;
         }
@@ -600,10 +623,10 @@ memory_leaks_report_file()
 
 //____________________________________________________________________________//
 
-int
+unsigned
 random_seed()
 {
-    return retrieve_parameter( RANDOM_SEED, s_cla_parser, 0, 1 );
+    return retrieve_parameter( RANDOM_SEED, s_cla_parser, 0U, 1U );
 }
 
 //____________________________________________________________________________//

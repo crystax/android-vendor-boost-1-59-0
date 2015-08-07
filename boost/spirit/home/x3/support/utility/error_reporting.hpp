@@ -19,6 +19,9 @@
 
 namespace boost { namespace spirit { namespace x3
 {
+    // tag used to get our error handler from the context
+    struct error_handler_tag;
+
     template <typename Iterator>
     class error_handler
     {
@@ -48,6 +51,11 @@ namespace boost { namespace spirit { namespace x3
         void tag(AST& ast, Iterator first, Iterator last)
         {
             return pos_cache.annotate(ast, first, last);
+        }
+
+        boost::iterator_range<Iterator> position_of(position_tagged pos) const
+        {
+            return pos_cache.position_of(pos);
         }
 
     private:

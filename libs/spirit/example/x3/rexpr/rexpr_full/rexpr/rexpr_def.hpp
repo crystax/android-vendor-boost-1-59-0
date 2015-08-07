@@ -7,13 +7,13 @@
 #if !defined(BOOST_SPIRIT_X3_REPR_REXPR_DEF_HPP)
 #define BOOST_SPIRIT_X3_REPR_REXPR_DEF_HPP
 
-#include "annotation.hpp"
 #include "ast.hpp"
 #include "ast_adapted.hpp"
 #include "error_handler.hpp"
 #include "rexpr.hpp"
 
 #include <boost/spirit/home/x3.hpp>
+#include <boost/spirit/home/x3/support/utility/annotate_on_success.hpp>
 
 namespace rexpr { namespace parser
 {
@@ -33,23 +33,21 @@ namespace rexpr { namespace parser
     struct rexpr_value_class;
     struct rexpr_key_value_class;
     struct rexpr_inner_class;
-    struct rexpr_class;
 
     ///////////////////////////////////////////////////////////////////////////
     // Rules
     ///////////////////////////////////////////////////////////////////////////
 
-    x3::rule<rexpr_value_class, ast::rexpr_value>
+    x3::rule<rexpr_value_class, ast::rexpr_value> const
         rexpr_value = "rexpr_value";
 
-    x3::rule<rexpr_key_value_class, ast::rexpr_key_value>
+    x3::rule<rexpr_key_value_class, ast::rexpr_key_value> const
         rexpr_key_value = "rexpr_key_value";
 
-    x3::rule<rexpr_inner_class, ast::rexpr>
+    x3::rule<rexpr_inner_class, ast::rexpr> const
         rexpr_inner = "rexpr";
 
-    x3::rule<rexpr_class, ast::rexpr>
-        rexpr = "rexpr";
+    rexpr_type const rexpr = "rexpr";
 
     ///////////////////////////////////////////////////////////////////////////
     // Grammar
@@ -75,15 +73,14 @@ namespace rexpr { namespace parser
     // Annotation and Error handling
     ///////////////////////////////////////////////////////////////////////////
 
-    // We want these to be annotated with the iterator position (see annotation.hpp)
-    struct rexpr_value_class : annotation_base {};
-    struct rexpr_key_value_class : annotation_base {};
-    struct rexpr_inner_class : annotation_base {};
+    // We want these to be annotated with the iterator position.
+    struct rexpr_value_class : x3::annotate_on_success {};
+    struct rexpr_key_value_class : x3::annotate_on_success {};
+    struct rexpr_inner_class : x3::annotate_on_success {};
 
     // We want error-handling only for the start (outermost) rexpr
     // rexpr is the same as rexpr_inner but without error-handling (see error_handler.hpp)
-    struct rexpr_class :
-        annotation_base, error_handler_base {};
+    struct rexpr_class : x3::annotate_on_success, error_handler_base {};
 }}
 
 namespace rexpr
