@@ -51,7 +51,7 @@
         digits are shown. For 64-bit <span class="bold"><strong>IEEE754</strong></span> double
         - 17 decimal digits. For <span class="bold"><strong>IEEE754</strong></span> extended
         long double using 80-bit - 21 decimal digits. For <span class="bold"><strong>IEEE754</strong></span>
-        quadruple long double 128-bit, and Sparc extended long double 128-bit - 36
+        quadruple long double 128-bit, and SPARC extended long double 128-bit - 36
         decimal digits. For floating-point types, a convenient formula to calculate
         <code class="computeroutput"><span class="identifier">max_digits10</span></code> is: <code class="computeroutput"><span class="number">2</span> <span class="special">+</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">numeric_limits</span><span class="special">&lt;</span><span class="identifier">FPT</span><span class="special">&gt;::</span><span class="identifier">digits</span>
         <span class="special">*</span> <span class="number">3010</span><span class="special">/</span><span class="number">10000</span></code>;
@@ -65,7 +65,7 @@
           Note that a user defined floating point type UDFPT must define <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">numeric_limits</span><span class="special">&lt;</span><span class="identifier">UDFPT</span><span class="special">&gt;::</span><span class="identifier">is_specialized</span> <span class="special">=</span>
           <span class="keyword">true</span></code> and provide an appropriate
           value for <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">numeric_limits</span><span class="special">&lt;</span><span class="identifier">UDFPT</span><span class="special">&gt;::</span><span class="identifier">digits</span></code>, the number of bits used for the
-          significand or mantissa. For example, for the Sparc extended long double
+          significand or mantissa. For example, for the SPARC extended long double
           128, 113 bits are used for the significand (one of which is implicit).
         </p></td></tr>
 </table></div>

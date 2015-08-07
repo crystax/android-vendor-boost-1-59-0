@@ -7,10 +7,6 @@
 #if !defined(BOOST_SPIRIT_X3_RULE_JAN_08_2012_0326PM)
 #define BOOST_SPIRIT_X3_RULE_JAN_08_2012_0326PM
 
-#if defined(_MSC_VER)
-#pragma once
-#endif
-
 #include <boost/spirit/home/x3/nonterminal/detail/rule.hpp>
 #include <boost/type_traits/is_same.hpp>
 #include <boost/spirit/home/x3/support/context.hpp>
@@ -57,7 +53,7 @@ namespace boost { namespace spirit { namespace x3
         static bool const force_attribute =
             force_attribute_;
 
-        rule_definition(RHS rhs, char const* name)
+        rule_definition(RHS const& rhs, char const* name)
           : rhs(rhs), name(name) {}
 
         template <typename Iterator, typename Context, typename Attribute_>
@@ -101,7 +97,7 @@ namespace boost { namespace spirit { namespace x3
             ID, typename extension::as_parser<RHS>::value_type, Attribute, force_attribute_>
         operator=(RHS const& rhs) const
         {
-            return {as_parser(rhs), name};
+            return { as_parser(rhs), name };
         }
 
         template <typename RHS>
@@ -109,7 +105,7 @@ namespace boost { namespace spirit { namespace x3
             ID, typename extension::as_parser<RHS>::value_type, Attribute, true>
         operator%=(RHS const& rhs) const
         {
-            return {as_parser(rhs), name};
+            return { as_parser(rhs), name };
         }
 
 

@@ -8,12 +8,12 @@
 #define BOOST_SPIRIT_X3_CALC9_EXPRESSION_DEF_HPP
 
 #include <boost/spirit/home/x3.hpp>
+#include <boost/spirit/home/x3/support/utility/annotate_on_success.hpp>
 #include "ast.hpp"
 #include "ast_adapted.hpp"
 #include "expression.hpp"
 #include "common.hpp"
 #include "error_handler.hpp"
-#include "annotation.hpp"
 
 namespace client { namespace parser
 {
@@ -112,8 +112,8 @@ namespace client { namespace parser
     logical_expr_type const logical_expr = "logical_expr";
     additive_expr_type const additive_expr = "additive_expr";
     multiplicative_expr_type const multiplicative_expr = "multiplicative_expr";
-    unary_expr_type unary_expr = "unary_expr";
-    primary_expr_type primary_expr = "primary_expr";
+    unary_expr_type const unary_expr = "unary_expr";
+    primary_expr_type const primary_expr = "primary_expr";
 
     auto const logical_expr_def =
             equality_expr
@@ -165,8 +165,8 @@ namespace client { namespace parser
       , primary_expr
     );
 
-    struct unary_expr_class : annotation_base {};
-    struct primary_expr_class : annotation_base {};
+    struct unary_expr_class : x3::annotate_on_success {};
+    struct primary_expr_class : x3::annotate_on_success {};
 
 }}
 

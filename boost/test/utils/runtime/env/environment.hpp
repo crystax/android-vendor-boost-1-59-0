@@ -53,7 +53,7 @@ init_new_var( cstring var_name, Modifiers m = nfp::no_params )
     cstring str_value = sys_read_var( new_vd.m_var_name );
 
     if( !str_value.is_empty() ) {
-        try {
+        BOOST_TEST_IMPL_TRY {
             boost::optional<T> value;
 
             if( m.has( interpreter ) )
@@ -67,7 +67,7 @@ init_new_var( cstring var_name, Modifiers m = nfp::no_params )
                 arg_value<T>( *new_vd.m_value ) = *value;
             }
         }
-        catch( ... ) { // !! could we do that
+        BOOST_TEST_IMPL_CATCHALL() { // !! could we do that
             // !! should we report an error?
         }
     }
@@ -161,8 +161,10 @@ namespace env = environment;
 
 #ifndef BOOST_TEST_UTILS_RUNTIME_PARAM_OFFLINE
 
-#define BOOST_TEST_UTILS_RUNTIME_PARAM_INLINE inline
-#include <boost/test/utils/runtime/env/environment.ipp>
+#ifndef BOOST_TEST_UTILS_RUNTIME_PARAM_INLINE
+#   define BOOST_TEST_UTILS_RUNTIME_PARAM_INLINE inline
+#endif
+# include <boost/test/utils/runtime/env/environment.ipp>
 
 #endif
 

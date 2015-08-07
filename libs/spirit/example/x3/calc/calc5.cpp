@@ -73,22 +73,16 @@ namespace client { namespace ast
     inline std::ostream& operator<<(std::ostream& out, nil) { out << "nil"; return out; }
 }}
 
-BOOST_FUSION_ADAPT_STRUCT(
-    client::ast::signed_,
-    (char, sign)
-    (client::ast::operand, operand_)
+BOOST_FUSION_ADAPT_STRUCT(client::ast::signed_,
+    sign, operand_
 )
 
-BOOST_FUSION_ADAPT_STRUCT(
-    client::ast::operation,
-    (char, operator_)
-    (client::ast::operand, operand_)
+BOOST_FUSION_ADAPT_STRUCT(client::ast::operation,
+    operator_, operand_
 )
 
-BOOST_FUSION_ADAPT_STRUCT(
-    client::ast::program,
-    (client::ast::operand, first)
-    (std::list<client::ast::operation>, rest)
+BOOST_FUSION_ADAPT_STRUCT(client::ast::program,
+    first, rest
 )
 
 namespace client { namespace ast
@@ -128,7 +122,7 @@ namespace client { namespace ast
         void operator()(program const& x) const
         {
             boost::apply_visitor(*this, x.first);
-            BOOST_FOREACH(operation const& oper, x.rest)
+            for (operation const& oper : x.rest)
             {
                 std::cout << ' ';
                 (*this)(oper);
@@ -175,7 +169,7 @@ namespace client { namespace ast
         int operator()(program const& x) const
         {
             int state = boost::apply_visitor(*this, x.first);
-            BOOST_FOREACH(operation const& oper, x.rest)
+            for (operation const& oper : x.rest)
             {
                 state = (*this)(oper, state);
             }

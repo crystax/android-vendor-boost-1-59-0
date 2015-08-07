@@ -35,31 +35,31 @@
 </span><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> Sample<span class="special">&gt;</span> 
 <span class="keyword">struct</span> <a class="link" href="skewness_impl.html" title="Struct template skewness_impl">skewness_impl</a> <span class="special">:</span> <span class="keyword">public</span> <span class="identifier">accumulator_base</span> <span class="special">{</span>
   <span class="comment">// <a class="link" href="skewness_impl.html#boost.accumulators.impl.skewness_implconstruct-copy-destruct">construct/copy/destruct</a></span>
-  <a class="link" href="skewness_impl.html#idp69815808-bb"><span class="identifier">skewness_impl</span></a><span class="special">(</span><span class="identifier">dont_care</span><span class="special">)</span><span class="special">;</span>
+  <a class="link" href="skewness_impl.html#idp66395120-bb"><span class="identifier">skewness_impl</span></a><span class="special">(</span><span class="identifier">dont_care</span><span class="special">)</span><span class="special">;</span>
 
-  <span class="comment">// <a class="link" href="skewness_impl.html#idp69812432-bb">public member functions</a></span>
-  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> Args<span class="special">&gt;</span> <span class="identifier">result_type</span> <a class="link" href="skewness_impl.html#idp69812992-bb"><span class="identifier">result</span></a><span class="special">(</span><span class="identifier">Args</span> <span class="keyword">const</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="comment">// <a class="link" href="skewness_impl.html#idp66391744-bb">public member functions</a></span>
+  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> Args<span class="special">&gt;</span> <span class="identifier">result_type</span> <a class="link" href="skewness_impl.html#idp66392304-bb"><span class="identifier">result</span></a><span class="special">(</span><span class="identifier">Args</span> <span class="keyword">const</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
 <span class="special">}</span><span class="special">;</span></pre></div>
 <div class="refsect1">
-<a name="idp117064384"></a><h2>Description</h2>
+<a name="idp109869488"></a><h2>Description</h2>
 <p>The skewness of a sample distribution is defined as the ratio of the 3rd central moment and the <span class="inlinemediaobject"><img src="../../../images/accumulators//form_101.png"></span>-th power of the 2nd central moment (the variance) of the samples 3. The skewness can also be expressed by the simple moments:</p>
 <div class="equation">
-<a name="idp117067824"></a><p class="title"><b>Equation&#160;1.30.&#160;</b></p>
+<a name="idp109872928"></a><p class="title"><b>Equation&#160;1.30.&#160;</b></p>
 <div class="equation-contents"><div class="mediaobject" align="center"><img src="../../../images/accumulators//form_102.png" align="middle"></div></div>
 </div>
 <p><br class="equation-break"></p>
 <p>where <span class="inlinemediaobject"><img src="../../../images/accumulators//form_57.png"></span> are the <span class="inlinemediaobject"><img src="../../../images/accumulators//form_58.png"></span>-th moment and <span class="inlinemediaobject"><img src="../../../images/accumulators//form_59.png"></span> the mean (first moment) of the <span class="inlinemediaobject"><img src="../../../images/accumulators//form_52.png"></span> samples. </p>
 <div class="refsect2">
-<a name="idp117080704"></a><h3>
+<a name="idp109885808"></a><h3>
 <a name="boost.accumulators.impl.skewness_implconstruct-copy-destruct"></a><code class="computeroutput">skewness_impl</code> 
         public
        construct/copy/destruct</h3>
-<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><pre class="literallayout"><a name="idp69815808-bb"></a><span class="identifier">skewness_impl</span><span class="special">(</span><span class="identifier">dont_care</span><span class="special">)</span><span class="special">;</span></pre></li></ol></div>
+<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><pre class="literallayout"><a name="idp66395120-bb"></a><span class="identifier">skewness_impl</span><span class="special">(</span><span class="identifier">dont_care</span><span class="special">)</span><span class="special">;</span></pre></li></ol></div>
 </div>
 <div class="refsect2">
-<a name="idp117087312"></a><h3>
-<a name="idp69812432-bb"></a><code class="computeroutput">skewness_impl</code> public member functions</h3>
-<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> Args<span class="special">&gt;</span> <span class="identifier">result_type</span> <a name="idp69812992-bb"></a><span class="identifier">result</span><span class="special">(</span><span class="identifier">Args</span> <span class="keyword">const</span> <span class="special">&amp;</span> args<span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre></li></ol></div>
+<a name="idp109892416"></a><h3>
+<a name="idp66391744-bb"></a><code class="computeroutput">skewness_impl</code> public member functions</h3>
+<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> Args<span class="special">&gt;</span> <span class="identifier">result_type</span> <a name="idp66392304-bb"></a><span class="identifier">result</span><span class="special">(</span><span class="identifier">Args</span> <span class="keyword">const</span> <span class="special">&amp;</span> args<span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre></li></ol></div>
 </div>
 </div>
 </div>

@@ -36,45 +36,45 @@
          <span class="keyword">typename</span> VariateTag<span class="special">&gt;</span> 
 <span class="keyword">struct</span> <a class="link" href="tail_variate_means_impl.html" title="Struct template tail_variate_means_impl">tail_variate_means_impl</a> <span class="special">:</span> <span class="keyword">public</span> <span class="identifier">accumulator_base</span> <span class="special">{</span>
   <span class="comment">// <a class="link" href="tail_variate_means_impl.html#boost.accumulators.impl.tail_variate_means_implconstruct-copy-destruct">construct/copy/destruct</a></span>
-  <a class="link" href="tail_variate_means_impl.html#idp69930704-bb"><span class="identifier">tail_variate_means_impl</span></a><span class="special">(</span><span class="identifier">dont_care</span><span class="special">)</span><span class="special">;</span>
+  <a class="link" href="tail_variate_means_impl.html#idp66510016-bb"><span class="identifier">tail_variate_means_impl</span></a><span class="special">(</span><span class="identifier">dont_care</span><span class="special">)</span><span class="special">;</span>
 
-  <span class="comment">// <a class="link" href="tail_variate_means_impl.html#idp69927328-bb">public member functions</a></span>
-  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> Args<span class="special">&gt;</span> <span class="identifier">result_type</span> <a class="link" href="tail_variate_means_impl.html#idp69927888-bb"><span class="identifier">result</span></a><span class="special">(</span><span class="identifier">Args</span> <span class="keyword">const</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="comment">// <a class="link" href="tail_variate_means_impl.html#idp66506640-bb">public member functions</a></span>
+  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> Args<span class="special">&gt;</span> <span class="identifier">result_type</span> <a class="link" href="tail_variate_means_impl.html#idp66507200-bb"><span class="identifier">result</span></a><span class="special">(</span><span class="identifier">Args</span> <span class="keyword">const</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
 <span class="special">}</span><span class="special">;</span></pre></div>
 <div class="refsect1">
-<a name="idp117565136"></a><h2>Description</h2>
+<a name="idp110370096"></a><h2>Description</h2>
 <p>For all <span class="inlinemediaobject"><img src="../../../images/accumulators//form_60.png"></span>-th variates associated to the <span class="inlinemediaobject"><img src="../../../images/accumulators//form_72.png"></span> largest samples (or the <span class="inlinemediaobject"><img src="../../../images/accumulators//form_72.png"></span> smallest samples in case of the left tail), the absolute tail means <span class="inlinemediaobject"><img src="../../../images/accumulators//form_63.png"></span> are computed and returned as an iterator range. Alternatively, the relative tail means <span class="inlinemediaobject"><img src="../../../images/accumulators//form_64.png"></span> are returned, which are the absolute tail means normalized with the (non-coherent) sample tail mean <span class="inlinemediaobject"><img src="../../../images/accumulators//form_65.png"></span>.</p>
 <div class="equation">
-<a name="idp117580688"></a><p class="title"><b>Equation&#160;1.32.&#160;</b></p>
+<a name="idp110385648"></a><p class="title"><b>Equation&#160;1.32.&#160;</b></p>
 <div class="equation-contents"><div class="mediaobject" align="center"><img src="../../../images/accumulators//form_110.png" align="middle"></div></div>
 </div>
 <p><br class="equation-break"></p>
 <div class="equation">
-<a name="idp117583696"></a><p class="title"><b>Equation&#160;1.33.&#160;</b></p>
+<a name="idp110388656"></a><p class="title"><b>Equation&#160;1.33.&#160;</b></p>
 <div class="equation-contents"><div class="mediaobject" align="center"><img src="../../../images/accumulators//form_111.png" align="middle"></div></div>
 </div>
 <p><br class="equation-break"></p>
 <div class="equation">
-<a name="idp117586704"></a><p class="title"><b>Equation&#160;1.34.&#160;</b></p>
+<a name="idp110391664"></a><p class="title"><b>Equation&#160;1.34.&#160;</b></p>
 <div class="equation-contents"><div class="mediaobject" align="center"><img src="../../../images/accumulators//form_112.png" align="middle"></div></div>
 </div>
 <p><br class="equation-break"></p>
 <div class="equation">
-<a name="idp117589808"></a><p class="title"><b>Equation&#160;1.35.&#160;</b></p>
+<a name="idp110394768"></a><p class="title"><b>Equation&#160;1.35.&#160;</b></p>
 <div class="equation-contents"><div class="mediaobject" align="center"><img src="../../../images/accumulators//form_113.png" align="middle"></div></div>
 </div>
 <p><br class="equation-break"> </p>
 <div class="refsect2">
-<a name="idp117592912"></a><h3>
+<a name="idp110397872"></a><h3>
 <a name="boost.accumulators.impl.tail_variate_means_implconstruct-copy-destruct"></a><code class="computeroutput">tail_variate_means_impl</code> 
         public
        construct/copy/destruct</h3>
-<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><pre class="literallayout"><a name="idp69930704-bb"></a><span class="identifier">tail_variate_means_impl</span><span class="special">(</span><span class="identifier">dont_care</span><span class="special">)</span><span class="special">;</span></pre></li></ol></div>
+<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><pre class="literallayout"><a name="idp66510016-bb"></a><span class="identifier">tail_variate_means_impl</span><span class="special">(</span><span class="identifier">dont_care</span><span class="special">)</span><span class="special">;</span></pre></li></ol></div>
 </div>
 <div class="refsect2">
-<a name="idp117599520"></a><h3>
-<a name="idp69927328-bb"></a><code class="computeroutput">tail_variate_means_impl</code> public member functions</h3>
-<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> Args<span class="special">&gt;</span> <span class="identifier">result_type</span> <a name="idp69927888-bb"></a><span class="identifier">result</span><span class="special">(</span><span class="identifier">Args</span> <span class="keyword">const</span> <span class="special">&amp;</span> args<span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre></li></ol></div>
+<a name="idp110404480"></a><h3>
+<a name="idp66506640-bb"></a><code class="computeroutput">tail_variate_means_impl</code> public member functions</h3>
+<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> Args<span class="special">&gt;</span> <span class="identifier">result_type</span> <a name="idp66507200-bb"></a><span class="identifier">result</span><span class="special">(</span><span class="identifier">Args</span> <span class="keyword">const</span> <span class="special">&amp;</span> args<span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre></li></ol></div>
 </div>
 </div>
 </div>

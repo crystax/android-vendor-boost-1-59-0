@@ -54,7 +54,9 @@ check_result(
     {
         if (expected_point_count > 0)
         {
-            n += bg::num_points(*it, true);
+            // here n should rather be of type std::size_t, but expected_point_count
+            // is set to -1 in some test cases so type int was left for now
+            n += static_cast<int>(bg::num_points(*it, true));
         }
 
         // instead of specialization we check it run-time here
@@ -92,7 +94,16 @@ check_result(
     }
 
     double const detected_length_or_area = boost::numeric_cast<double>(length_or_area);
-    BOOST_CHECK_CLOSE(detected_length_or_area, expected_length_or_area, percentage);
+    if (percentage > 0.0)
+    {
+        BOOST_CHECK_CLOSE(detected_length_or_area, expected_length_or_area, percentage);
+    }
+    else
+    {
+        // In some cases (geos_2) the intersection is either 0, or a tiny rectangle,
+        // depending on compiler/settings. That cannot be tested by CLOSE
+        BOOST_CHECK_LE(detected_length_or_area, expected_length_or_area);
+    }
 #endif
 
     return length_or_area;

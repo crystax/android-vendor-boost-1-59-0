@@ -30,7 +30,7 @@
 <pre class="synopsis"><span class="keyword">namespace</span> <span class="identifier">boost</span> <span class="special">{</span>
   <span class="keyword">namespace</span> <span class="identifier">unit_test</span> <span class="special">{</span>
     <span class="keyword">namespace</span> <span class="identifier">runtime_config</span> <span class="special">{</span>
-      <span class="keyword">void</span> <a name="boost.unit_test.runtime_config.init_idp43612576"></a><span class="identifier">init</span><span class="special">(</span><span class="keyword">int</span> <span class="special">&amp;</span> argc<span class="special">,</span> <span class="keyword">char</span> <span class="special">*</span><span class="special">*</span> argv<span class="special">)</span><span class="special">;</span>
+      <span class="keyword">void</span> <a name="boost.unit_test.runtime_config.init_idp44567776"></a><span class="identifier">init</span><span class="special">(</span><span class="keyword">int</span> <span class="special">&amp;</span> argc<span class="special">,</span> <span class="keyword">char</span> <span class="special">*</span><span class="special">*</span> argv<span class="special">)</span><span class="special">;</span>
 
       <span class="comment">// Automatically attach debugger in a location of fatal error. </span>
       <span class="keyword">bool</span> <a name="boost.unit_test.runtime_config.auto_start_dbg"></a><span class="identifier">auto_start_dbg</span><span class="special">(</span><span class="special">)</span><span class="special">;</span>
@@ -46,10 +46,13 @@
       <span class="keyword">bool</span> <a name="boost.unit_test.runtime_config.detect_fp_exceptions"></a><span class="identifier">detect_fp_exceptions</span><span class="special">(</span><span class="special">)</span><span class="special">;</span>
 
       <span class="comment">// Should we detect memory leaks (&gt;0)? And if yes, which specific memory allocation should we break. </span>
-      <span class="keyword">long</span> <a name="boost.unit_test.runtime_config.detect_memory__idp43620304"></a><span class="identifier">detect_memory_leaks</span><span class="special">(</span><span class="special">)</span><span class="special">;</span>
+      <span class="keyword">long</span> <a name="boost.unit_test.runtime_config.detect_memory__idp44575504"></a><span class="identifier">detect_memory_leaks</span><span class="special">(</span><span class="special">)</span><span class="special">;</span>
 
-      <span class="comment">// Print content of test tree? </span>
+      <span class="comment">// List content of test tree? </span>
       <span class="identifier">output_format</span> <a name="boost.unit_test.runtime_config.list_content"></a><span class="identifier">list_content</span><span class="special">(</span><span class="special">)</span><span class="special">;</span>
+
+      <span class="comment">// List available labels? </span>
+      <span class="keyword">bool</span> <a name="boost.unit_test.runtime_config.list_labels"></a><span class="identifier">list_labels</span><span class="special">(</span><span class="special">)</span><span class="special">;</span>
 
       <span class="comment">// Which output format to use. </span>
       <span class="identifier">output_format</span> <a name="boost.unit_test.runtime_config.log_format"></a><span class="identifier">log_format</span><span class="special">(</span><span class="special">)</span><span class="special">;</span>
@@ -67,7 +70,7 @@
       <span class="keyword">bool</span> <a name="boost.unit_test.runtime_config.no_result_code"></a><span class="identifier">no_result_code</span><span class="special">(</span><span class="special">)</span><span class="special">;</span>
 
       <span class="comment">// Random seed to use to randomize order of test units being run. </span>
-      <span class="keyword">int</span> <a name="boost.unit_test.runtime_config.random_seed"></a><span class="identifier">random_seed</span><span class="special">(</span><span class="special">)</span><span class="special">;</span>
+      <span class="keyword">unsigned</span> <a name="boost.unit_test.runtime_config.random_seed"></a><span class="identifier">random_seed</span><span class="special">(</span><span class="special">)</span><span class="special">;</span>
 
       <span class="comment">// Which format to use to report results. </span>
       <span class="identifier">output_format</span> <a name="boost.unit_test.runtime_config.report_format"></a><span class="identifier">report_format</span><span class="special">(</span><span class="special">)</span><span class="special">;</span>

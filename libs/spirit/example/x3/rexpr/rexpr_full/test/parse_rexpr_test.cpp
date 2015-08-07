@@ -26,7 +26,7 @@ auto parse = [](std::string const& source, fs::path input_path)-> std::string
 
     using rexpr::parser::iterator_type;
     iterator_type iter(source.begin());
-    iterator_type end(source.end());
+    iterator_type const end(source.end());
 
     // Our AST
     rexpr::ast::rexpr ast;
@@ -34,13 +34,14 @@ auto parse = [](std::string const& source, fs::path input_path)-> std::string
     // Our error handler
     using boost::spirit::x3::with;
     using rexpr::parser::error_handler_type;
+    using rexpr::parser::error_handler_tag;
     error_handler_type error_handler(iter, end, out, input_path.c_str()); // Our error handler
 
     // Our parser
     auto const parser =
         // we pass our error handler to the parser so we can access
         // it later on in our on_error and on_sucess handlers
-        with<rexpr::parser::error_handler_tag>(std::ref(error_handler))
+        with<error_handler_tag>(std::ref(error_handler))
         [
             rexpr::rexpr()
         ];
@@ -52,9 +53,9 @@ auto parse = [](std::string const& source, fs::path input_path)-> std::string
     if (success)
     {
         if (iter != end)
-            return "Error! Expecting end of input here: " + std::string(iter, end) + '\n';
-        rexpr::ast::rexpr_printer printer{out};
-        printer(ast);
+            error_handler(iter, "Error! Expecting end of input here: ");
+        else
+            rexpr::ast::rexpr_printer{out}(ast);
     }
 
     return out.str();

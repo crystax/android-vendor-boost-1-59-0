@@ -7,13 +7,8 @@
 #if !defined(BOOST_SPIRIT_X3_TST_MARCH_09_2007_0905AM)
 #define BOOST_SPIRIT_X3_TST_MARCH_09_2007_0905AM
 
-#if defined(_MSC_VER)
-#pragma once
-#endif
-
 #include <boost/call_traits.hpp>
 #include <boost/detail/iterator.hpp>
-#include <boost/foreach.hpp>
 #include <boost/assert.hpp>
 
 namespace boost { namespace spirit { namespace x3 { namespace detail
@@ -114,7 +109,7 @@ namespace boost { namespace spirit { namespace x3 { namespace detail
                 return 0;
 
             tst_node** pp = &start;
-            for(;;)
+            for (;;)
             {
                 typename
                     boost::detail::iterator_traits<Iterator>::value_type

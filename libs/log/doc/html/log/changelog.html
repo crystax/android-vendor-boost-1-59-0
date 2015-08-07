@@ -86,17 +86,29 @@
           for atomic operations which provides better portability. On Linux the implementation
           uses futexes directly. ( <a href="https://svn.boost.org/trac/boost/ticket/11398" target="_top">#11398</a>)
         </li>
+<li class="listitem">
+          Changed the format of dates produced by the default formatter constructed
+          from strings (e.g. when initializing the library from a config file). The
+          new format displays months as numbers instead of abbreviated names. This
+          allows for easier log record ordering when post-processing log files. (
+          <a href="https://svn.boost.org/trac/boost/ticket/8839" target="_top">#8839</a>)
+        </li>
 </ul></div>
 <p>
       <span class="bold"><strong>Bug fixes:</strong></span>
     </p>
-<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
           Fixed incorrect behavior of <code class="computeroutput"><span class="identifier">attribute_value_set</span><span class="special">::</span><span class="identifier">insert</span><span class="special">()</span></code> and <code class="computeroutput"><span class="identifier">attribute_value_set</span></code>
           constructor in some cases. The inserted elements could have made some previously
           inserted elements not findable. The constructor from <code class="computeroutput"><span class="identifier">attribute_set</span></code>s
           could leave some of the attribute values acquired from attributes not findable.
           ( <a href="https://svn.boost.org/trac/boost/ticket/11190" target="_top">#11190</a>)
-        </li></ul></div>
+        </li>
+<li class="listitem">
+          Added missing function template exports. ( <a href="https://svn.boost.org/trac/boost/ticket/11495" target="_top">#11495</a>)
+        </li>
+</ul></div>
 <h4>
 <a name="log.changelog.h1"></a>
       <span class="phrase"><a name="log.changelog.2_5__boost_1_58"></a></span><a class="link" href="changelog.html#log.changelog.2_5__boost_1_58">2.5,

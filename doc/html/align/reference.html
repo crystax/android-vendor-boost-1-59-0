@@ -705,7 +705,7 @@
       </h5>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">T</span><span class="special">&gt;</span>
 <span class="keyword">struct</span> <span class="identifier">alignment_of</span>
-  <span class="special">:</span> <span class="identifier">integral_constant</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span><span class="special">,</span> <span class="identifier">unspecified</span><span class="special">&gt;</span> <span class="special">{</span>
+  <span class="special">:</span> <span class="identifier">integral_constant</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span><span class="special">,</span> <span class="keyword">alignof</span><span class="special">(</span><span class="identifier">T</span><span class="special">)&gt;</span> <span class="special">{</span>
 <span class="special">};</span>
 </pre>
 <div class="blockquote"><blockquote class="blockquote">
@@ -738,14 +738,14 @@
         <span class="phrase"><a name="align.reference.assume_aligned.synopsis"></a></span><a class="link" href="reference.html#align.reference.assume_aligned.synopsis">Header
         &lt;boost/align/assume_aligned.hpp&gt;</a>
       </h5>
-<pre class="programlisting"><span class="preprocessor">#define</span> <span class="identifier">BOOST_ALIGN_ASSUME_ALIGNED</span><span class="special">(</span><span class="identifier">ptr</span><span class="special">,</span> <span class="identifier">alignment</span><span class="special">)</span> <span class="identifier">unspecified</span>
+<pre class="programlisting"><span class="identifier">BOOST_ALIGN_ASSUME_ALIGNED</span><span class="special">(</span><span class="identifier">ptr</span><span class="special">,</span> <span class="identifier">alignment</span><span class="special">)</span>
 </pre>
 <h5>
 <a name="align.reference.assume_aligned.h1"></a>
         <span class="phrase"><a name="align.reference.assume_aligned.assume_aligned"></a></span><a class="link" href="reference.html#align.reference.assume_aligned.assume_aligned">Macro
         BOOST_ALIGN_ASSUME_ALIGNED</a>
       </h5>
-<pre class="programlisting"><span class="preprocessor">#define</span> <span class="identifier">BOOST_ALIGN_ASSUME_ALIGNED</span><span class="special">(</span><span class="identifier">ptr</span><span class="special">,</span> <span class="identifier">alignment</span><span class="special">)</span> <span class="identifier">unspecified</span>
+<pre class="programlisting"><span class="identifier">BOOST_ALIGN_ASSUME_ALIGNED</span><span class="special">(</span><span class="identifier">ptr</span><span class="special">,</span> <span class="identifier">alignment</span><span class="special">)</span>
 </pre>
 <div class="blockquote"><blockquote class="blockquote">
 <p>

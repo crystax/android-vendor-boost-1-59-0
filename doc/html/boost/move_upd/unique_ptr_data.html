@@ -7,8 +7,8 @@
 <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="../../index.html" title="The Boost C++ Libraries BoostBook Documentation Subset">
 <link rel="up" href="../../move/reference.html#header.boost.move.unique_ptr_hpp" title="Header &lt;boost/move/unique_ptr.hpp&gt;">
-<link rel="prev" href="unique_moveco_idp115822960.html" title="Struct template unique_moveconvert_assignable">
-<link rel="next" href="unique_ptr_dat_idp98108384.html" title="Struct template unique_ptr_data&lt;P, D, false&gt;">
+<link rel="prev" href="unique_moveco_idp207435136.html" title="Struct template unique_moveconvert_assignable">
+<link rel="next" href="unique_ptr_da_idp203566208.html" title="Struct template unique_ptr_data&lt;P, D, false&gt;">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr>
@@ -21,7 +21,7 @@
 </tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="unique_moveco_idp115822960.html"><img src="../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../../move/reference.html#header.boost.move.unique_ptr_hpp"><img src="../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="unique_ptr_dat_idp98108384.html"><img src="../../../../doc/src/images/next.png" alt="Next"></a>
+<a accesskey="p" href="unique_moveco_idp207435136.html"><img src="../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../../move/reference.html#header.boost.move.unique_ptr_hpp"><img src="../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="unique_ptr_da_idp203566208.html"><img src="../../../../doc/src/images/next.png" alt="Next"></a>
 </div>
 <div class="refentry">
 <a name="boost.move_upd.unique_ptr_data"></a><div class="titlepage"></div>
@@ -41,43 +41,43 @@
   <span class="keyword">typedef</span> <span class="identifier">deleter_types</span><span class="special">&lt;</span> <span class="identifier">D</span> <span class="special">&gt;</span><span class="special">::</span><span class="identifier">del_cref</span>          <a name="boost.move_upd.unique_ptr_data.del_cref"></a><span class="identifier">del_cref</span><span class="special">;</span>         
 
   <span class="comment">// <a class="link" href="unique_ptr_data.html#boost.move_upd.unique_ptr_dataconstruct-copy-destruct">construct/copy/destruct</a></span>
-  <a class="link" href="unique_ptr_data.html#idp104190032-bb"><span class="identifier">unique_ptr_data</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span>
-  <span class="keyword">explicit</span> <a class="link" href="unique_ptr_data.html#idp104190592-bb"><span class="identifier">unique_ptr_data</span></a><span class="special">(</span><span class="identifier">P</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span>
-  <a class="link" href="unique_ptr_data.html#idp104192112-bb"><span class="identifier">unique_ptr_data</span></a><span class="special">(</span><span class="identifier">P</span><span class="special">,</span> <span class="identifier">deleter_arg_type1</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span>
-  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <a class="link" href="unique_ptr_data.html#idp104194048-bb"><span class="identifier">unique_ptr_data</span></a><span class="special">(</span><span class="identifier">P</span><span class="special">,</span> <span class="identifier">U</span> <span class="special">&amp;&amp;</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span>
-  <a class="link" href="unique_ptr_data.html#idp98107408-bb"><span class="identifier">unique_ptr_data</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">unique_ptr_data</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span>
-  <span class="identifier">unique_ptr_data</span> <span class="special">&amp;</span> <a class="link" href="unique_ptr_data.html#idp98106144-bb"><span class="keyword">operator</span><span class="special">=</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">unique_ptr_data</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span>
+  <a class="link" href="unique_ptr_data.html#idp205782160-bb"><span class="identifier">unique_ptr_data</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span>
+  <span class="keyword">explicit</span> <a class="link" href="unique_ptr_data.html#idp203597552-bb"><span class="identifier">unique_ptr_data</span></a><span class="special">(</span><span class="identifier">P</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span>
+  <a class="link" href="unique_ptr_data.html#idp203599072-bb"><span class="identifier">unique_ptr_data</span></a><span class="special">(</span><span class="identifier">P</span><span class="special">,</span> <span class="identifier">deleter_arg_type1</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span>
+  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <a class="link" href="unique_ptr_data.html#idp203601008-bb"><span class="identifier">unique_ptr_data</span></a><span class="special">(</span><span class="identifier">P</span><span class="special">,</span> <span class="identifier">U</span> <span class="special">&amp;&amp;</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span>
+  <a class="link" href="unique_ptr_data.html#idp203565232-bb"><span class="identifier">unique_ptr_data</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">unique_ptr_data</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span>
+  <span class="identifier">unique_ptr_data</span> <span class="special">&amp;</span> <a class="link" href="unique_ptr_data.html#idp203563968-bb"><span class="keyword">operator</span><span class="special">=</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">unique_ptr_data</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span>
 
-  <span class="comment">// <a class="link" href="unique_ptr_data.html#idp105838640-bb">public member functions</a></span>
-  <span class="identifier">del_ref</span> <a class="link" href="unique_ptr_data.html#idp105839200-bb"><span class="identifier">deleter</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
-  <span class="identifier">del_cref</span> <a class="link" href="unique_ptr_data.html#idp105840048-bb"><span class="identifier">deleter</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="comment">// <a class="link" href="unique_ptr_data.html#idp205779472-bb">public member functions</a></span>
+  <span class="identifier">del_ref</span> <a class="link" href="unique_ptr_data.html#idp205780032-bb"><span class="identifier">deleter</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
+  <span class="identifier">del_cref</span> <a class="link" href="unique_ptr_data.html#idp205780880-bb"><span class="identifier">deleter</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
 
   <span class="comment">// public data members</span>
   <span class="identifier">P</span> <span class="identifier">m_p</span><span class="special">;</span>
   <span class="identifier">D</span> <span class="identifier">d</span><span class="special">;</span>
 <span class="special">}</span><span class="special">;</span></pre></div>
 <div class="refsect1">
-<a name="idp339092432"></a><h2>Description</h2>
+<a name="idp331898688"></a><h2>Description</h2>
 <div class="refsect2">
-<a name="idp339092848"></a><h3>
+<a name="idp331899104"></a><h3>
 <a name="boost.move_upd.unique_ptr_dataconstruct-copy-destruct"></a><code class="computeroutput">unique_ptr_data</code> 
         public
        construct/copy/destruct</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1">
-<li class="listitem"><pre class="literallayout"><a name="idp104190032-bb"></a><span class="identifier">unique_ptr_data</span><span class="special">(</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span></pre></li>
-<li class="listitem"><pre class="literallayout"><span class="keyword">explicit</span> <a name="idp104190592-bb"></a><span class="identifier">unique_ptr_data</span><span class="special">(</span><span class="identifier">P</span> p<span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span></pre></li>
-<li class="listitem"><pre class="literallayout"><a name="idp104192112-bb"></a><span class="identifier">unique_ptr_data</span><span class="special">(</span><span class="identifier">P</span> p<span class="special">,</span> <span class="identifier">deleter_arg_type1</span> d1<span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span></pre></li>
-<li class="listitem"><pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <a name="idp104194048-bb"></a><span class="identifier">unique_ptr_data</span><span class="special">(</span><span class="identifier">P</span> p<span class="special">,</span> <span class="identifier">U</span> <span class="special">&amp;&amp;</span> d<span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span></pre></li>
-<li class="listitem"><pre class="literallayout"><a name="idp98107408-bb"></a><span class="identifier">unique_ptr_data</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">unique_ptr_data</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span></pre></li>
-<li class="listitem"><pre class="literallayout"><span class="identifier">unique_ptr_data</span> <span class="special">&amp;</span> <a name="idp98106144-bb"></a><span class="keyword">operator</span><span class="special">=</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">unique_ptr_data</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span></pre></li>
+<li class="listitem"><pre class="literallayout"><a name="idp205782160-bb"></a><span class="identifier">unique_ptr_data</span><span class="special">(</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span></pre></li>
+<li class="listitem"><pre class="literallayout"><span class="keyword">explicit</span> <a name="idp203597552-bb"></a><span class="identifier">unique_ptr_data</span><span class="special">(</span><span class="identifier">P</span> p<span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span></pre></li>
+<li class="listitem"><pre class="literallayout"><a name="idp203599072-bb"></a><span class="identifier">unique_ptr_data</span><span class="special">(</span><span class="identifier">P</span> p<span class="special">,</span> <span class="identifier">deleter_arg_type1</span> d1<span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span></pre></li>
+<li class="listitem"><pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> <a name="idp203601008-bb"></a><span class="identifier">unique_ptr_data</span><span class="special">(</span><span class="identifier">P</span> p<span class="special">,</span> <span class="identifier">U</span> <span class="special">&amp;&amp;</span> d1<span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span></pre></li>
+<li class="listitem"><pre class="literallayout"><a name="idp203565232-bb"></a><span class="identifier">unique_ptr_data</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">unique_ptr_data</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span></pre></li>
+<li class="listitem"><pre class="literallayout"><span class="identifier">unique_ptr_data</span> <span class="special">&amp;</span> <a name="idp203563968-bb"></a><span class="keyword">operator</span><span class="special">=</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">unique_ptr_data</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span></pre></li>
 </ol></div>
 </div>
 <div class="refsect2">
-<a name="idp339133888"></a><h3>
-<a name="idp105838640-bb"></a><code class="computeroutput">unique_ptr_data</code> public member functions</h3>
+<a name="idp331940016"></a><h3>
+<a name="idp205779472-bb"></a><code class="computeroutput">unique_ptr_data</code> public member functions</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1">
-<li class="listitem"><pre class="literallayout"><span class="identifier">del_ref</span> <a name="idp105839200-bb"></a><span class="identifier">deleter</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre></li>
-<li class="listitem"><pre class="literallayout"><span class="identifier">del_cref</span> <a name="idp105840048-bb"></a><span class="identifier">deleter</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre></li>
+<li class="listitem"><pre class="literallayout"><span class="identifier">del_ref</span> <a name="idp205780032-bb"></a><span class="identifier">deleter</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre></li>
+<li class="listitem"><pre class="literallayout"><span class="identifier">del_cref</span> <a name="idp205780880-bb"></a><span class="identifier">deleter</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre></li>
 </ol></div>
 </div>
 </div>
@@ -92,7 +92,7 @@
 </tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="unique_moveco_idp115822960.html"><img src="../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../../move/reference.html#header.boost.move.unique_ptr_hpp"><img src="../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="unique_ptr_dat_idp98108384.html"><img src="../../../../doc/src/images/next.png" alt="Next"></a>
+<a accesskey="p" href="unique_moveco_idp207435136.html"><img src="../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../../move/reference.html#header.boost.move.unique_ptr_hpp"><img src="../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="unique_ptr_da_idp203566208.html"><img src="../../../../doc/src/images/next.png" alt="Next"></a>
 </div>
 </body>
 </html>

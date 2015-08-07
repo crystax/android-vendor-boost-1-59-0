@@ -23,7 +23,7 @@
 #include <boost/fusion/tuple/detail/preprocessed/tuple.hpp>
 #else
 #if defined(__WAVE__) && defined(BOOST_FUSION_CREATE_PREPROCESSED_FILES)
-#pragma wave option(preserve: 2, line: 0, output: "detail/preprocessed/tuple" FUSION_MAX_VECTOR_SIZE_STR ".hpp")
+#pragma wave option(preserve: 2, line: 0, output: "preprocessed/tuple" FUSION_MAX_VECTOR_SIZE_STR ".hpp")
 #endif
 
 /*=============================================================================
@@ -52,7 +52,7 @@ namespace boost { namespace fusion
             : base_type() {}
 
         BOOST_FUSION_GPU_ENABLED tuple(tuple const& rhs)
-            : base_type(rhs) {}
+            : base_type(static_cast<base_type const&>(rhs)) {}
 
         template <typename U1, typename U2>
         BOOST_FUSION_GPU_ENABLED
@@ -72,7 +72,7 @@ namespace boost { namespace fusion
         BOOST_FUSION_GPU_ENABLED
         tuple& operator=(tuple const& rhs)
         {
-            base_type::operator=(rhs);
+            base_type::operator=(static_cast<base_type const&>(rhs));
             return *this;
         }
 
