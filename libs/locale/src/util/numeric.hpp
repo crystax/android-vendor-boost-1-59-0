@@ -254,6 +254,24 @@ private:
 
 };  /// num_format
 
+#if defined(__ANDROID__) && defined(__x86_64__) && defined(__clang__)
+namespace base_num_parse_details
+{
+
+template <typename ValueType>
+struct cast_helper
+{
+    static ValueType cast(long double val) { return static_cast<ValueType>(val); }
+};
+
+template <>
+struct cast_helper<unsigned short>
+{
+    static unsigned short cast(long double val) { return static_cast<unsigned short>(static_cast<unsigned int>(val)); }
+};
+
+} // namespace base_num_parse_details
+#endif /* defined(__ANDROID__) && defined(__x86_64__) && defined(__clang__) */
 
 template<typename CharType>
 class base_num_parse : public std::num_get<CharType>
@@ -342,7 +360,11 @@ private:
                 else
                     in = parse_currency<true>(in,end,ios,err,ret_val);
                 if(!(err & std::ios_base::failbit))
+#if defined(__ANDROID__) && defined(__x86_64__) && defined(__clang__)
+                    val = base_num_parse_details::cast_helper<ValueType>::cast(ret_val);
+#else
                     val = static_cast<ValueType>(ret_val);
+#endif
                 return in;
             }
 
